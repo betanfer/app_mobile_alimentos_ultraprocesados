@@ -56,6 +56,8 @@ Por ejemplo: fondo, botones, textos, elementos destacados, estados, etc.
 
 La paleta de colores fue pensada con tres cosas en mente, que sea alegre y colorida para que vaya bien con el público joven. Además, la variedad de colores hace referencia a los diferentes grupos alimenticios, elegimos una paleta de colores naturales que se relaciona con elementos de la naturaleza. Además, esta pensada para generar un buen contraste entre colores de texto, acento y fondo, para respetar las normativas de accesibilidad. Por último, pensamos añadir dos paletas de colores extras para dos “modos daltónicos” diferentes, y esta paleta en particular ofrecía una buena cantidad de colores tanto en “modo normal” como en “modo daltónico”.
 
+Link a la paleta de colores: [Paleta](https://palettechecker.com/#BA5A5A-F7E49B-A4CE8B-86BCBD-E7F1F2-172929)
+
 ## Tipografías
 
 Definan:
