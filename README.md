@@ -82,3 +82,9 @@ Tengan especialmente en cuenta la ergonomía del pulgar y las zonas de fácil ac
 Los botones serán semi redondeados (los diseños de referencia se encuentran en el Figma y en la carpeta de imágenes dentro de este repositorio).
 Los botones de acciones principales, como por ejemplo “jugar” o los mismo accionables dentro del juego, se posicionarán en la parte inferior de la pantalla para que sean de fácil acceso para el usuario, serán rectangulares con esquinas redondeadas y ocuparán de tamaño el tercio central del tamaño disponible. 
 Los botones de menús (como configuraciones, opciones, botones para pausar el juego), se ubicarán en la parte superior derecha de la pantalla porque es la posición acostumbrada para este tipo de acciones en otros juegos, es la posición a la que el usuario ya está acostumbrado. Estos serán más cuadrados (es decir con un alto y ancho similar), también semi redondeados y pequeños para no molestar ni distraer al usuario, pero lo suficientemente grandes como para que puedan ser accionados con facilidad sin tocar sin querer otra parte de la pantalla.
+
+## Algunos recursos gratuitos que usamos como inspiración
+
+[Botones](https://www.figma.com/design/ppNLYbER8ipWWv9QGg1O5h/Trendy-Buttons--Community-?node-id=0-1&t=6PhVaQbMiiN6wuf6-1)
+[Botones](https://www.figma.com/design/wMrYdqKOV5LTSREcoZhzVp/Interactive-Buttons-set-by-Nikica--Community-?node-id=1-201&p=f)
+[Interfaz](https://www.figma.com/design/iT747ijREVzySCe8EmBYUf/Shoping-App-Iphone--Community-?node-id=0-1&t=nuA7Iqe7vNznlauL-1)
