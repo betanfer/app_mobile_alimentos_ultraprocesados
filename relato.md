@@ -10,9 +10,21 @@ Se propone una duración de partida de como máximo 2 minutos, en el que usará 
 En primer lugar, el juego le indicará al usuario si su avatar será hombre o mujer. Luego mostrará los puntos obtenidos, el nivel de vitalidad del avatar, y el botón “Iniciar juego”
 
 
-## Durante la partida:
+## Primera decisión:
 
-El jugador deberá armar un menú diario, que incluye desayuno, almuerzo, merienda y cena.
+Se le indicará al jugador si desea:
+Armar la comida correspondiente al horario en que está jugando.
+Elegir la comida específica que desea armar.
+Armar el menú diario completo, que incluye desayuno, almuerzo, merienda y cena.
+
+Los horarios en los que se le muestra el jugador la comida a hacer según la hora son:
+De 6 a 10 hs: desayuno
+De 11 a 14 hs: almuerzo
+De 15 a 18 hs: merienda
+De 19 a 21 hs: cena
+
+
+## Durante la partida:
 
 Para cada comida, deberá elegir una opción en un total de 3 mostradas aleatoriamente de una lista establecida de 40 alimentos, con su nivel saludable, su nivel de saciedad y su nivel de vitalidad. El jugador tendrá un tiempo de 30 segundos para elegir cada alimento, arrastrándolo hacia la lonchera o el plato. Habrá una opción más recomendada, otra normal y otra no recomendada.
 
