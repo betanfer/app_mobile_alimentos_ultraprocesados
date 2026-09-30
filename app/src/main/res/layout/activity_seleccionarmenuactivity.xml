@@ -3,10 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color6"
+    android:background="@color/color_background"
     android:fillViewport="true">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="20dp">
@@ -16,11 +17,10 @@
             android:id="@+id/tvTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/opendyslexic"
+            android:fontFamily="@font/open_dyslexic"
             android:text="JUEGO: ARMA TU MENÚ"
-            android:textColor="@color/color5"
+            android:textAppearance="@style/TextAppearance.CodigoVerde.Title"
             android:textSize="22sp"
-            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -31,15 +31,15 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:fontFamily="@font/opendyslexic"
+            android:fontFamily="@font/open_dyslexic"
             android:text="¿Cómo querés elegir tu comida hoy?"
-            android:textColor="@color/color4"
+            android:textAppearance="@style/TextAppearance.CodigoVerde.Subtitle"
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
 
-        <!-- OPCCIÓN 1: AUTOMÁTICO (Seleccionado por defecto) -->
+        <!-- OPCIÓN 1: AUTOMÁTICO (Seleccionado por defecto) -->
         <LinearLayout
             android:id="@+id/cardAutomatic"
             android:layout_width="match_parent"
@@ -47,7 +47,7 @@
             android:layout_marginTop="20dp"
             android:background="@drawable/bg_card_selected"
             android:orientation="vertical"
-            android:padding="16dp"
+            android:padding="@dimen/spacing_medium"
             app:layout_constraintTop_toBottomOf="@+id/tvSubtitle">
 
             <RelativeLayout
@@ -57,10 +57,10 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/opendyslexic"
+                    android:fontFamily="@font/open_dyslexic"
                     android:text="AUTOMÁTICO"
-                    android:textColor="@color/color3"
-                    android:textSize="18sp"
+                    android:textColor="@color/color_text_highlight"
+                    android:textSize="@dimen/text_size_button"
                     android:textStyle="bold" />
 
                 <!-- Check de selección -->
@@ -69,16 +69,16 @@
                     android:layout_height="24dp"
                     android:layout_alignParentEnd="true"
                     android:src="@android:drawable/checkbox_on_background"
-                    app:tint="@color/color3" />
+                    app:tint="@color/color_success" />
             </RelativeLayout>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:fontFamily="@font/opendyslexic"
+                android:layout_marginTop="@dimen/spacing_small"
+                android:fontFamily="@font/open_dyslexic"
                 android:text="La app elige según la hora del día para que juegues con lo que te toca comer ahora."
-                android:textColor="@color/color5"
+                android:textColor="@color/color_text_primary"
                 android:textSize="13sp" />
 
             <!-- Subtarjeta de Horarios del menú -->
@@ -97,9 +97,9 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/opendyslexic"
+                        android:fontFamily="@font/open_dyslexic"
                         android:text="HORARIOS DEL MENÚ"
-                        android:textColor="@color/color4"
+                        android:textColor="@color/color_text_secondary"
                         android:textSize="11sp"
                         android:textStyle="bold" />
 
@@ -107,9 +107,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
-                        android:fontFamily="@font/opendyslexic"
+                        android:fontFamily="@font/open_dyslexic"
                         android:text="ACTUAL: ALMUERZO"
-                        android:textColor="@color/color2"
+                        android:textColor="@color/color_warning"
                         android:textSize="11sp"
                         android:textStyle="bold" />
                 </RelativeLayout>
@@ -118,9 +118,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:fontFamily="@font/opendyslexic"
+                    android:fontFamily="@font/open_dyslexic"
                     android:text="Desayuno 6-10hs • Almuerzo 12-14hs • Merienda 15-18hs • Cena 19-21hs"
-                    android:textColor="@color/color4"
+                    android:textColor="@color/color_text_secondary"
                     android:textSize="11sp" />
             </LinearLayout>
         </LinearLayout>
@@ -130,28 +130,28 @@
             android:id="@+id/cardCustom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="@dimen/spacing_medium"
             android:background="@drawable/bg_card_unselected"
             android:orientation="vertical"
-            android:padding="16dp"
+            android:padding="@dimen/spacing_medium"
             app:layout_constraintTop_toBottomOf="@+id/cardAutomatic">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/opendyslexic"
+                android:fontFamily="@font/open_dyslexic"
                 android:text="YO ELIJO"
-                android:textColor="@color/color5"
-                android:textSize="18sp"
+                android:textColor="@color/color_text_primary"
+                android:textSize="@dimen/text_size_button"
                 android:textStyle="bold" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:fontFamily="@font/opendyslexic"
+                android:layout_marginTop="@dimen/spacing_small"
+                android:fontFamily="@font/open_dyslexic"
                 android:text="Elegí vos mismo qué comida armar y descubrí opciones saludables."
-                android:textColor="@color/color4"
+                android:textColor="@color/color_text_secondary"
                 android:textSize="13sp" />
 
             <!-- Chips de Comidas -->
@@ -166,11 +166,11 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="6dp"
                     android:background="@drawable/bg_tag"
-                    android:fontFamily="@font/opendyslexic"
+                    android:fontFamily="@font/open_dyslexic"
                     android:paddingHorizontal="10dp"
                     android:paddingVertical="4dp"
                     android:text="DESAYUNO"
-                    android:textColor="@color/color4"
+                    android:textColor="@color/color_text_secondary"
                     android:textSize="10sp" />
 
                 <TextView
@@ -178,22 +178,22 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="6dp"
                     android:background="@drawable/bg_tag"
-                    android:fontFamily="@font/opendyslexic"
+                    android:fontFamily="@font/open_dyslexic"
                     android:paddingHorizontal="10dp"
                     android:paddingVertical="4dp"
                     android:text="ALMUERZO"
-                    android:textColor="@color/color4"
+                    android:textColor="@color/color_text_secondary"
                     android:textSize="10sp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/bg_tag"
-                    android:fontFamily="@font/opendyslexic"
+                    android:fontFamily="@font/open_dyslexic"
                     android:paddingHorizontal="10dp"
                     android:paddingVertical="4dp"
                     android:text="MERIENDA"
-                    android:textColor="@color/color4"
+                    android:textColor="@color/color_text_secondary"
                     android:textSize="10sp" />
             </LinearLayout>
         </LinearLayout>
@@ -203,10 +203,10 @@
             android:id="@+id/cardTip"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="@dimen/spacing_medium"
             android:background="@drawable/bg_card_unselected"
             android:orientation="horizontal"
-            android:padding="16dp"
+            android:padding="@dimen/spacing_medium"
             app:layout_constraintTop_toBottomOf="@+id/cardCustom">
 
             <TextView
@@ -219,24 +219,22 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/opendyslexic"
+                android:fontFamily="@font/open_dyslexic"
                 android:text="Sabías que comer variado ayuda a tener más energía para jugar, estudiar y hacer deportes? ¡Sumá puntos verdes!"
-                android:textColor="@color/color4"
+                android:textColor="@color/color_text_secondary"
                 android:textSize="12sp" />
         </LinearLayout>
 
         <!-- Botón CONFIRMAR Y EMPEZAR -->
-        <androidx.appcompat.widget.AppCompatButton
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnConfirm"
+            style="@style/Widget.CodigoVerde.Button.Primary"
             android:layout_width="match_parent"
             android:layout_height="56dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginBottom="16dp"
-            android:background="@drawable/bg_button_green"
-            android:fontFamily="@font/opendyslexic"
+            android:layout_marginHorizontal="@dimen/button_primary_margin_horizontal"
+            android:layout_marginTop="@dimen/spacing_large"
+            android:layout_marginBottom="@dimen/spacing_medium"
             android:text="CONFIRMAR Y EMPEZAR"
-            android:textColor="@color/color6"
-            android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cardTip" />
