@@ -20,6 +20,9 @@ Scodelari Julia
 
 [Figma](https://www.figma.com/design/0FFUgH8JY8tdWQKZwHYNxw/C%C3%B3digo-Verde?node-id=0-1&t=GePfTl6c2rRsv8mP-1)
 
+## Figma con flujo de pantallas:
+[Figma](https://www.figma.com/design/zpR1UfmqXWgEzf0P6405iV/APP-CODIGO-VERDE?node-id=0-1&t=jVcKDDquxswSxvkc-1)
+
 ## 1. Definimos nuestra persona usuaria
 
 Nuestra aplicación está orientada para niños de 13 años de edad, que vienen/residen en la argentina donde la misma puede implementarse en el colegio principalmente en un actividad en la materia de biología.
