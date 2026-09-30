@@ -33,29 +33,59 @@ A Mateo le gusta mucho educación física y plástica, pero le cuestan otras mat
 
 ## Colores
 
-* **--color-5 (#E7F1F2) - Fondo Principal:** Este tono hielo/casi blanco es ideal para el fondo general del juego o de los menús. Mantiene la pantalla limpia, luminosa y permite que los demás colores destaquen sin saturar la vista. Además, los fondos claros son mejores para utilizar en condiciones de mucha luz y nuestro juego está pensado para jugarse en la escuela, en compañía de otras personas, es decir, en condiciones de buena iluminación. 
-* **--color-6 (#172929) - Texto y Contornos:** Este tono oscuro fue elegido principalmente para la legibilidad. Lo pensamos para tipografías, títulos e íconos. Ofrece un gran contraste sobre el fondo claro.
-* **--color-2 (#F7E49B) - Protagonista Alegre (Paneles y Botones Principales):** Para darle a la app una vibra juvenil sin arruinar el contraste, lo pensamos para los grandes bloques de la UI: fondos de ventanas emergentes (pop-ups), botones de "Jugar" o marcos.  
-* **--color-3 (#A4CE8B) - Acciones Positivas y Energía:** Este verde pastel es perfecto para botones de confirmación ("Aceptar", "Siguiente"), indicadores de éxito, o barras de estamina/salud. Nuestra app plantea un “sistema semáforo” (rojo, amarillo, verde) para marcar claramente las elecciones buenas y malas de alimentos. Este es nuestro verde elegido. 
-* **--color-1 (#BA5A5A) - Alertas y Cancelaciones:** Rojizo terroso para contrastar fuertemente y llamar la atención en interacciones críticas: botones de "Salir", "Cerrar", notificaciones de error o indicadores de alimentos poco saludables. 
-* **--color-4 (#86BCBD) - Elementos Secundarios:** Este turquesa lo elegimos como color de contraste y de apoyo. Lo pensamos para botones inactivos o menos importantes, bordes decorativos, pestañas no seleccionadas o barras de progreso de carga, que acompañe al amarillo sin robarle el foco. 
+* **#172929 - Fondo Principal:** Este tono oscuro profundo es la base de toda la interfaz. Elegimos un fondo oscuro para reducir la fatiga visual en sesiones de juego y para que los colores del semáforo y los textos claros resalten con fuerza sobre él. Además, genera una estética moderna que conecta con los juegos que ya consume nuestro público.
+* **#E7F1F2 - Texto Primario:** Este tono hielo/casi blanco es el color principal de lectura. Sobre el fondo oscuro ofrece un contraste alto y limpio, ideal para títulos, párrafos y toda la información que el jugador necesita leer cómodamente.
+* **#86BCBD - Texto Secundario y Elementos de Apoyo:** Este turquesa suave lo usamos como segundo nivel de texto y para elementos de la UI que acompañan sin competir: subtítulos, etiquetas, hints en campos de texto, bordes decorativos y botones secundarios (como el de menú o configuración).
+* **#A4CE8B - Texto Resaltado y Éxito (Verde Semáforo):** Este verde pastel cumple doble función: por un lado resalta la información importante dentro de los textos (highlights), y por el otro es el color principal de los botones de acción ("Jugar", "Aceptar", "Siguiente") y el indicador de éxito en el sistema semáforo. Es nuestro verde elegido para marcar las elecciones saludables.
+* **#F7E49B - Advertencia (Amarillo Semáforo):** Amarillo cálido para el nivel intermedio del semáforo. Marca las opciones "normales" que no son ni las más saludables ni las peores. También lo usamos para avisos y estados de atención.
+* **#BA5A5A - Error y Alertas (Rojo Semáforo):** Rojizo terroso para contrastar fuertemente y llamar la atención en situaciones críticas: indicadores de alimentos poco saludables, notificaciones de error y el nivel rojo del semáforo.
 
-La paleta de colores fue pensada con tres cosas en mente, que sea alegre y colorida para que vaya bien con el público joven. Además, la variedad de colores hace referencia a los diferentes grupos alimenticios, elegimos una paleta de colores naturales que se relaciona con elementos de la naturaleza. Además, esta pensada para generar un buen contraste entre colores de texto, acento y fondo, para respetar las normativas de accesibilidad. Por último, pensamos añadir dos paletas de colores extras para dos “modos daltónicos” diferentes, y esta paleta en particular ofrecía una buena cantidad de colores tanto en “modo normal” como en “modo daltónico”.
+La paleta de colores fue pensada con tres cosas en mente. Primero, que sea atractiva y con personalidad para conectar con el público joven, usando colores naturales que se relacionan con los grupos alimenticios y la naturaleza. Segundo, que genere un contraste alto y claro entre fondo oscuro, texto claro y colores de acento, respetando las normativas de accesibilidad. Por último, pensamos añadir dos paletas de colores extras para dos "modos daltónicos" diferentes, implementadas como temas alternativos que el usuario puede activar desde la configuración de la app.
+
+### Paleta para Protanopia / Deuteranopia
+
+| Color original | Equivalente | Uso |
+|:-:|:-:|:--|
+| #BA5A5A | #90905A | Error / Semáforo rojo |
+| #F7E49B | #EEEFAD | Advertencia / Semáforo amarillo |
+| #A4CE8B | #B7B79B | Éxito / Semáforo verde / Botón primario |
+| #86BCBD | #9D9EBD | Texto secundario / Botón secundario |
+| #E7F1F2 | #EBEBF3 | Texto primario |
+| #172929 | #1F1F29 | Fondo |
+
+### Paleta para Tritanopia
+
+| Color original | Equivalente | Uso |
+|:-:|:-:|:--|
+| #BA5A5A | #B5595A | Error / Semáforo rojo |
+| #F7E49B | #F6BBBF | Advertencia / Semáforo amarillo |
+| #A4CE8B | #A7A8AC | Éxito / Semáforo verde / Botón primario |
+| #86BCBD | #89BCBD | Texto secundario / Botón secundario |
+| #E7F1F2 | #E8F2F2 | Texto primario |
+| #172929 | #192929 | Fondo |
 
 Link a la paleta de colores: [Paleta](https://palettechecker.com/#BA5A5A-F7E49B-A4CE8B-86BCBD-E7F1F2-172929)
 
 ## Tipografías
 
-Para la tipografía elegimos OpenDyslexic, ya que es una tipografía divertida, con personalidad, que facilita la lectura a personas disléxicas y con problemas de atención. Además es gratuita y Open Source.
+Para la tipografía elegimos OpenDyslexic, ya que es una tipografía divertida, con personalidad, que facilita la lectura a personas disléxicas y con problemas de atención. Además es gratuita y Open Source. Está definida como fuente global del tema, aplicándose a todos los textos de la app automáticamente.
+
+Se definieron cuatro niveles de tamaño de texto:
+* **Títulos (28sp):** Para pantallas principales, nombres de secciones y resultados de partida.
+* **Subtítulos (20sp):** Para encabezados de sección dentro de una pantalla, como las comidas del menú.
+* **Texto general (16sp):** Para descripciones, datos de alimentos, sección "¿Sabías qué?" y textos informativos.
+* **Texto de botón (18sp):** Para el texto dentro de los botones, lo suficientemente grande para leerse sin esfuerzo.
 
 Documentación oficial:
 [OpenDyslexic](https://opendyslexic.org/)
 
 ## Botones
 
-Los botones serán semi redondeados (los diseños de referencia se encuentran en el Figma y en la carpeta de imágenes dentro de este repositorio).
-Los botones de acciones principales, como por ejemplo “jugar” o los mismo accionables dentro del juego, se posicionarán en la parte inferior de la pantalla para que sean de fácil acceso para el usuario, serán rectangulares con esquinas redondeadas y ocuparán de tamaño el tercio central del tamaño disponible. 
-Los botones de menús (como configuraciones, opciones, botones para pausar el juego), se ubicarán en la parte superior derecha de la pantalla porque es la posición acostumbrada para este tipo de acciones en otros juegos, es la posición a la que el usuario ya está acostumbrado. Estos serán más cuadrados (es decir con un alto y ancho similar), también semi redondeados y pequeños para no molestar ni distraer al usuario, pero lo suficientemente grandes como para que puedan ser accionados con facilidad sin tocar sin querer otra parte de la pantalla.
+Los botones tienen esquinas redondeadas y la tipografía OpenDyslexic sin mayúsculas forzadas, para mantener la legibilidad y la personalidad visual de la app.
+
+Los **botones de acción principal** (como "Jugar", "Aceptar", "Siguiente" o los accionables dentro del juego) usan el color verde de éxito (#A4CE8B) con texto oscuro (#172929). Ocupan el ancho completo disponible de la pantalla con márgenes laterales para no tocar los bordes, son rectangulares con esquinas redondeadas y se posicionan en la parte inferior de la pantalla para que sean de fácil acceso para el usuario.
+
+Los **botones secundarios** (como configuración, opciones, pausar el juego) usan el color turquesa (#86BCBD) con texto oscuro. Son más pequeños, con una proporción cercana a 1:1 (casi cuadrados), también con bordes redondeados. Se ubican en la parte superior derecha de la pantalla porque es la posición acostumbrada para este tipo de acciones en otros juegos, es la posición a la que el usuario ya está acostumbrado. Son lo suficientemente grandes como para que puedan ser accionados con facilidad sin tocar sin querer otra parte de la pantalla, pero lo suficientemente compactos como para no molestar ni distraer al usuario.
 
 ## Algunos recursos gratuitos que usamos como inspiración
 
