@@ -1,0 +1,31 @@
+PROCEDIMIENTO DE DESARROLLO DE DESIGN BOOK 
+de Betancor Fernando Javier
+
+Para crear un book de colores y tipografía (también conocido como Design System o guía de estilos) para tu app mobile, 
+debes definir y organizar los elementos visuales base en un documento o archivo en herramientas como Figma que sirva de 
+referencia para desarrolladores y diseñadores.
+1. Definición de la Paleta de Colores
+Organiza tus colores por roles funcionales en lugar de solo por nombres estéticos:
+• Color Primario (Primary): El color principal de tu marca, usado en botones principales de acción (CTA), barras de navegación o elementos clave.
+• Color Secundario / Acento (Secondary/Accent): Sirve para resaltar elementos específicos, estados activos o llamadas a la acción secundarias.
+• Colores Neutrales (Neutrals): Variaciones de grises, blancos y negros para fondos, tarjetas, bordes y textos principales o secundarios.
+• Colores de Estado (Feedback):
+	• Éxito: Verde para confirmaciones o guardado exitoso.
+	• Advertencia: Amarillo o naranja para alertas.
+	• Error: Rojo para fallos o campos obligatorios incompletos.
+• Consejo: Incluye siempre el código hexadecimal (ej. #FFFFFF) y el nombre del token de diseño (ej. color-background-primary).
+2. Definición de la Jerarquía Tipográfica
+Establece un sistema de fuentes coherente y legible para pantallas pequeñas:
+• Fuente Principal: Elige una tipografía altamente legible (como Roboto para Android o San Francisco / Helvetica para iOS). 
+Limítate a una o dos familias tipográficas máximo para toda la app.
+• Escala de Textos: Define tamaños, pesos (light, regular, bold) y alturas de línea (line-height) para cada nivel:
+	• Títulos grandes (H1 / Display): Para pantallas de bienvenida o grandes encabezados (ej. 28-32sp).
+	• Títulos de sección (H2, H3): Para nombres de pantallas o tarjetas (ej. 20-24sp).
+	• Cuerpo de texto (Body): Para párrafos y descripciones leíbles (ej. 14-16sp).
+	• Textos pequeños (Caption / Overline): Para etiquetas, fechas o notas al pie (ej. 11-12sp).
+3. Estructura y Organización del Book
+• Crea estilos globales: Agrupa los colores y textos como variables o estilos reutilizables en tu herramienta de diseño.
+• Muestra ejemplos reales: Añade muestras de cómo interactúan la tipografía y los colores en componentes básicos 
+(un botón con texto dentro, una tarjeta con título y descripción, un campo de texto con error).
+• Especifica accesibilidad: Verifica que tus combinaciones de colores cumplan con los contrastes mínimos de accesibilidad
+ (normas WCAG) para que los textos se lean bien bajo la luz del sol o con brillo bajo en el celular.
