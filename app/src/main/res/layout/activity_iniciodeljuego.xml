@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color6"
+    android:padding="16dp">
+
+    <!-- Encabezado: Puntuación y Tiempo con margen para la barra del sistema -->
+    <TextView
+        android:id="@+id/tvScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/bg_tag"
+        android:fontFamily="@font/opendyslexic"
+        android:paddingHorizontal="14dp"
+        android:paddingVertical="6dp"
+        android:text="Puntos: 0"
+        android:textColor="@color/color3"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/tvTimer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/bg_tag"
+        android:fontFamily="@font/opendyslexic"
+        android:paddingHorizontal="14dp"
+        android:paddingVertical="6dp"
+        android:text="Tiempo: 30s"
+        android:textColor="@color/color2"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
+
+    <!-- Zona central de interacción -->
+    <ImageView
+        android:id="@+id/imgPlate"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:contentDescription="Plato de comida"
+        android:src="@drawable/dot_shape"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/color4"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/tvGameInstruction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/opendyslexic"
+        android:text="¡Atrapa la comida saludable!"
+        android:textColor="@color/color5"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/imgPlate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvScore"
+        tools:ignore="HardcodedText" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
