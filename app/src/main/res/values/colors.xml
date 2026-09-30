@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="color1">#BA5A5A</color> <!-- Rojo / Alerta -->
+    <color name="color2">#F7E49B</color> <!-- Amarillento -->
+    <color name="color3">#A4CE8B</color> <!-- Verde principal / Verde claro -->
+    <color name="color4">#86BCBD</color> <!-- Azul verdoso -->
+    <color name="color5">#E7F1F2</color> <!-- Blanco / Texto claro -->
+    <color name="color6">#172929</color> <!-- Fondo oscuro principal -->
+</resources>
