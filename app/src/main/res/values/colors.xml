@@ -1,9 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="color1">#BA5A5A</color> <!-- Rojo / Alerta -->
-    <color name="color2">#F7E49B</color> <!-- Amarillento -->
-    <color name="color3">#A4CE8B</color> <!-- Verde principal / Verde claro -->
-    <color name="color4">#86BCBD</color> <!-- Azul verdoso -->
-    <color name="color5">#E7F1F2</color> <!-- Blanco / Texto claro -->
-    <color name="color6">#172929</color> <!-- Fondo oscuro principal -->
+
+    <!-- ============================================= -->
+    <!--  PALETA PRINCIPAL (Visión Normal)              -->
+    <!-- ============================================= -->
+
+    <!-- Fondo oscuro principal -->
+    <color name="color_background">#FF172929</color>
+
+    <!-- Texto primario (claro) sobre fondo oscuro -->
+    <color name="color_text_primary">#FFE7F1F2</color>
+    <!-- Texto secundario / elementos de apoyo -->
+    <color name="color_text_secondary">#FF86BCBD</color>
+    <!-- Texto resaltado / highlight -->
+    <color name="color_text_highlight">#FFA4CE8B</color>
+
+    <!-- Semáforo -->
+    <color name="color_success">#FFA4CE8B</color>
+    <color name="color_warning">#FFF7E49B</color>
+    <color name="color_error">#FFBA5A5A</color>
+
+    <!-- Botón primario (usa success) -->
+    <color name="color_button_primary">#FFA4CE8B</color>
+    <color name="color_button_primary_text">#FF172929</color>
+
+    <!-- Botón secundario -->
+    <color name="color_button_secondary">#FF86BCBD</color>
+    <color name="color_button_secondary_text">#FF172929</color>
+
+    <!-- ============================================= -->
+    <!--  PALETA PROTANOPIA / DEUTERANOPIA              -->
+    <!-- ============================================= -->
+
+    <color name="color_protan_background">#FF1F1F29</color>
+    <color name="color_protan_text_primary">#FFEBEBF3</color>
+    <color name="color_protan_text_secondary">#FF9D9EBD</color>
+    <color name="color_protan_text_highlight">#FFB7B79B</color>
+    <color name="color_protan_success">#FFB7B79B</color>
+    <color name="color_protan_warning">#FFEEEFAD</color>
+    <color name="color_protan_error">#FF90905A</color>
+
+    <!-- ============================================= -->
+    <!--  PALETA TRITANOPIA                             -->
+    <!-- ============================================= -->
+
+    <color name="color_tritan_background">#FF192929</color>
+    <color name="color_tritan_text_primary">#FFE8F2F2</color>
+    <color name="color_tritan_text_secondary">#FF89BCBD</color>
+    <color name="color_tritan_text_highlight">#FFA7A8AC</color>
+    <color name="color_tritan_success">#FFA7A8AC</color>
+    <color name="color_tritan_warning">#FFF6BBBF</color>
+    <color name="color_tritan_error">#FFB5595A</color>
+
 </resources>

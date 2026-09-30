@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- ============================================= -->
+    <!--  TAMAÑOS DE TEXTO                              -->
+    <!-- ============================================= -->
+
+    <!-- Títulos principales (pantallas, fin de partida) -->
+    <dimen name="text_size_title">28sp</dimen>
+    <!-- Subtítulos (secciones, comidas del menú) -->
+    <dimen name="text_size_subtitle">20sp</dimen>
+    <!-- Texto general (descripciones, ¿Sabías qué?) -->
+    <dimen name="text_size_body">16sp</dimen>
+    <!-- Texto dentro de botones -->
+    <dimen name="text_size_button">18sp</dimen>
+
+    <!-- ============================================= -->
+    <!--  BOTONES                                       -->
+    <!-- ============================================= -->
+
+    <!-- Radio de esquinas redondeadas -->
+    <dimen name="button_corner_radius">16dp</dimen>
+
+    <!-- Botón primario: márgenes laterales para no tocar bordes -->
+    <dimen name="button_primary_margin_horizontal">24dp</dimen>
+    <dimen name="button_primary_padding_vertical">14dp</dimen>
+    <dimen name="button_primary_padding_horizontal">24dp</dimen>
+
+    <!-- Botón secundario: tamaño cuadrado/cercano a 1:1 -->
+    <dimen name="button_secondary_size">48dp</dimen>
+    <dimen name="button_secondary_corner_radius">12dp</dimen>
+    <dimen name="button_secondary_margin">16dp</dimen>
+
+    <!-- ============================================= -->
+    <!--  MÁRGENES Y PADDINGS GENERALES                 -->
+    <!-- ============================================= -->
+
+    <dimen name="spacing_small">8dp</dimen>
+    <dimen name="spacing_medium">16dp</dimen>
+    <dimen name="spacing_large">24dp</dimen>
+
+</resources>
