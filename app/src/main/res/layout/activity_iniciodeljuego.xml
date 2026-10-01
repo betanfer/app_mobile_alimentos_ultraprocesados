@@ -8,12 +8,25 @@
     android:background="@color/color_background"
     android:padding="@dimen/spacing_medium">
 
+    <!-- Botón de Volver (<) -->
+    <ImageButton
+        android:id="@+id/btnBack"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="@drawable/bg_circle_button"
+        android:contentDescription="@string/btn_back_description"
+        android:padding="12dp"
+        android:src="@drawable/ic_arrow_back"
+        app:tint="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <!-- Encabezado: Puntuación y Tiempo -->
     <TextView
         android:id="@+id/tvScore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/spacing_large"
+        android:layout_marginTop="@dimen/spacing_medium"
         android:background="@drawable/bg_tag"
         android:fontFamily="@font/open_dyslexic"
         android:paddingHorizontal="14dp"
@@ -23,14 +36,14 @@
         android:textSize="@dimen/text_size_body"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnBack"
         tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/tvTimer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/spacing_large"
+        android:layout_marginTop="@dimen/spacing_medium"
         android:background="@drawable/bg_tag"
         android:fontFamily="@font/open_dyslexic"
         android:paddingHorizontal="14dp"
@@ -40,7 +53,7 @@
         android:textSize="@dimen/text_size_body"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnBack"
         tools:ignore="HardcodedText" />
 
     <!-- Zona central de interacción -->
@@ -72,4 +85,20 @@
         app:layout_constraintTop_toBottomOf="@+id/tvScore"
         tools:ignore="HardcodedText" />
 
+    <Button
+        android:id="@+id/btnStartGame"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:layout_marginHorizontal="24dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/bg_button_green"
+        android:fontFamily="@font/open_dyslexic"
+        android:text="¡JUGAR!"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:backgroundTint="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
