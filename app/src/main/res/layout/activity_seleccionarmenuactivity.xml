@@ -103,7 +103,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
                         android:fontFamily="@font/open_dyslexic"
-                        android:text="ACTUAL: ALMUERZO"
+                        android:text="ACTUAL: DESAYUNO"
                         android:textColor="@color/color_warning"
                         android:textSize="11sp"
                         android:textStyle="bold" />
