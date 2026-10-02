@@ -95,3 +95,8 @@ Los **botones secundarios** (como configuración, opciones, pausar el juego) usa
 [Botones](https://www.figma.com/design/ppNLYbER8ipWWv9QGg1O5h/Trendy-Buttons--Community-?node-id=0-1&t=6PhVaQbMiiN6wuf6-1)
 [Botones](https://www.figma.com/design/wMrYdqKOV5LTSREcoZhzVp/Interactive-Buttons-set-by-Nikica--Community-?node-id=1-201&p=f)
 [Interfaz](https://www.figma.com/design/iT747ijREVzySCe8EmBYUf/Shoping-App-Iphone--Community-?node-id=0-1&t=nuA7Iqe7vNznlauL-1)
+
+
+## Cómo se construirá la navegación entre pantallas
+
+Entre usar Kotlin nativo con Intents y usar Jetpack Compose, hemos decidido usar la primera opción, Kotlin nativo con Intents, ya que nos resulta la alternativa más tradicional para conectar entre sí las pantallas del juego.
