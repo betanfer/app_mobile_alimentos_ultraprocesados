@@ -99,4 +99,4 @@ Los **botones secundarios** (como configuración, opciones, pausar el juego) usa
 
 ## Cómo se construirá la navegación entre pantallas
 
-Entre usar Kotlin nativo con Intents y usar Jetpack Compose, hemos decidido usar la primera opción, Kotlin nativo con Intents, ya que nos resulta la alternativa más tradicional para conectar entre sí las pantallas del juego.
+Entre usar Kotlin nativo con Intents y usar Jetpack Compose, hemos decidido usar la primera opción, **Kotlin nativo con Intents**, ya que nos resulta la alternativa más tradicional para conectar entre sí las pantallas del juego. Hace que la arquitectura de la app sea más explícita, lo que facilita el desarrollo en esta primera etapa. Además, permite separar la interfaz de usuario de la aplicación de la lógica, para mantener una mejor organización.
