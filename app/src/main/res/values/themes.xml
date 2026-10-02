@@ -118,6 +118,7 @@
     <style name="TextAppearance.CodigoVerde.Button" parent="TextAppearance.MaterialComponents.Button">
         <item name="android:textSize">@dimen/text_size_button</item>
         <item name="android:fontFamily">@font/open_dyslexic</item>
+        <item name="fontFamily">@font/open_dyslexic</item>
         <item name="android:textAllCaps">false</item>
     </style>
 
@@ -136,13 +137,20 @@
         <!-- Esquinas redondeadas -->
         <item name="cornerRadius">@dimen/button_corner_radius</item>
 
+        <!-- Eliminar insets verticales para dar más espacio a la fuente OpenDyslexic -->
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:minHeight">60dp</item>
+
         <!-- Tamaño y espaciado -->
-        <item name="android:paddingTop">@dimen/button_primary_padding_vertical</item>
-        <item name="android:paddingBottom">@dimen/button_primary_padding_vertical</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
         <item name="android:paddingStart">@dimen/button_primary_padding_horizontal</item>
         <item name="android:paddingEnd">@dimen/button_primary_padding_horizontal</item>
 
-        <!-- Tipografía -->
+        <!-- Tipografía: Forzar OpenDyslexic en MaterialButton -->
+        <item name="android:fontFamily">@font/open_dyslexic</item>
+        <item name="fontFamily">@font/open_dyslexic</item>
         <item name="android:textAppearance">@style/TextAppearance.CodigoVerde.Button</item>
         <item name="android:textAllCaps">false</item>
 

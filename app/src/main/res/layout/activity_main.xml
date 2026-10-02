@@ -6,7 +6,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/color_background">
+    android:background="@color/color_background"
+    android:padding="@dimen/screen_margin_horizontal">
 
     <!-- Imagen principal / Logo -->
     <ImageView
@@ -62,11 +63,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/spacing_small"
         android:fontFamily="@font/open_dyslexic"
+        android:gravity="center"
         android:text="Tu guía contra los ultraprocesados"
         android:textAppearance="@style/TextAppearance.CodigoVerde.Subtitle"
         app:layout_constraintBottom_toTopOf="@+id/layoutDots"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
 

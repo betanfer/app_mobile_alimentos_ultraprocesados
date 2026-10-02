@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/color_background"
-    android:padding="@dimen/spacing_medium">
+    android:padding="@dimen/screen_margin_horizontal">
 
     <!-- Botón de Volver (<) -->
     <ImageButton
@@ -57,17 +57,19 @@
         tools:ignore="HardcodedText" />
 
     <!-- Zona central de interacción -->
+
     <ImageView
         android:id="@+id/imgPlate"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
-        android:contentDescription="Plato de comida"
-        android:src="@drawable/dot_shape"
+        android:layout_width="273dp"
+        android:layout_height="297dp"
+        android:contentDescription="Portada del juego"
+        android:scaleType="fitCenter"
+        android:src="@drawable/portada"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:tint="@color/color_text_secondary"
+        app:layout_constraintVertical_bias="0.614"
         tools:ignore="ContentDescription" />
 
     <TextView
@@ -81,16 +83,19 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/imgPlate"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvScore"
+        app:layout_constraintVertical_bias="0.311"
         tools:ignore="HardcodedText" />
 
     <Button
         android:id="@+id/btnStartGame"
         android:layout_width="0dp"
-        android:layout_height="56dp"
-        android:layout_marginHorizontal="24dp"
-        android:layout_marginBottom="24dp"
+        android:layout_height="wrap_content"
+        android:minHeight="60dp"
+        android:layout_marginHorizontal="0dp"
+        android:layout_marginBottom="12dp"
         android:background="@drawable/bg_button_green"
         android:fontFamily="@font/open_dyslexic"
         android:text="¡JUGAR!"

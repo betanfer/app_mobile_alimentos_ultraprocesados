@@ -39,4 +39,8 @@
     <dimen name="spacing_medium">16dp</dimen>
     <dimen name="spacing_large">24dp</dimen>
 
+    <!-- Márgenes de pantalla -->
+    <dimen name="screen_margin_horizontal">20dp</dimen>
+    <dimen name="screen_margin_vertical">20dp</dimen>
+
 </resources>
