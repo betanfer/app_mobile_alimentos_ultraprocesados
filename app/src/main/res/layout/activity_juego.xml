@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_background"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/screen_margin_horizontal"
+        tools:context=".JuegoActivity">
+
+        <!-- Botón Cerrar (X) -->
+        <ImageButton
+            android:id="@+id/btnBack2"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/bg_circle_button"
+            android:contentDescription="@string/btn_back_description"
+            android:padding="12dp"
+            android:src="@drawable/ic_close"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="#FFFFFF" />
+
+        <!-- Título principal -->
+        <TextView
+            android:id="@+id/tvGameTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:fontFamily="@font/open_dyslexic"
+            android:text="OPCIONES DE DESAYUNO"
+            android:textAppearance="@style/TextAppearance.CodigoVerde.Title"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/btnBack2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/btnBack2"
+            app:layout_constraintTop_toTopOf="@+id/btnBack2" />
+
+        <!-- FILA 1 -->
+        <!-- Imagen 1: Tostadas con palta -->
+        <ImageView
+            android:id="@+id/imgFood1"
+            android:layout_width="0dp"
+            android:layout_height="125dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img_01_desayuno_tostadas_palta"
+            app:layout_constraintEnd_toStartOf="@+id/imgFood2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnBack2" />
+
+        <!-- Label 50% sobre la imagen y 50% abajo -->
+        <TextView
+            android:id="@+id/tvFood1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_badge_dark"
+            android:fontFamily="@font/open_dyslexic"
+            android:gravity="center"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="6dp"
+            android:text="Tostadas con palta"
+            android:textColor="@color/color_text_primary"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/imgFood1"
+            app:layout_constraintEnd_toEndOf="@+id/imgFood1"
+            app:layout_constraintStart_toStartOf="@+id/imgFood1"
+            app:layout_constraintTop_toBottomOf="@+id/imgFood1" />
+
+        <!-- Imagen 2: Porridge de avena -->
+        <ImageView
+            android:id="@+id/imgFood2"
+            android:layout_width="0dp"
+            android:layout_height="125dp"
+            android:layout_marginStart="8dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img_02_desayuno_porridge_avena"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imgFood1"
+            app:layout_constraintTop_toTopOf="@+id/imgFood1" />
+
+        <TextView
+            android:id="@+id/tvFood2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_badge_dark"
+            android:fontFamily="@font/open_dyslexic"
+            android:gravity="center"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="6dp"
+            android:text="Porridge de avena"
+            android:textColor="@color/color_text_primary"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/imgFood2"
+            app:layout_constraintEnd_toEndOf="@+id/imgFood2"
+            app:layout_constraintStart_toStartOf="@+id/imgFood2"
+            app:layout_constraintTop_toBottomOf="@+id/imgFood2" />
+
+        <!-- FILA 2 -->
+        <!-- Imagen 3: Omelette de claras -->
+        <ImageView
+            android:id="@+id/imgFood3"
+            android:layout_width="0dp"
+            android:layout_height="125dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="8dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img_04_desayuno_omelette_claras"
+            app:layout_constraintEnd_toStartOf="@+id/imgFood4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvFood1" />
+
+        <TextView
+            android:id="@+id/tvFood3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_badge_dark"
+            android:fontFamily="@font/open_dyslexic"
+            android:gravity="center"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="6dp"
+            android:text="Omelette de claras"
+            android:textColor="@color/color_text_primary"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/imgFood3"
+            app:layout_constraintEnd_toEndOf="@+id/imgFood3"
+            app:layout_constraintStart_toStartOf="@+id/imgFood3"
+            app:layout_constraintTop_toBottomOf="@+id/imgFood3" />
+
+        <!-- Imagen 4: Medialunas dulce de leche -->
+        <ImageView
+            android:id="@+id/imgFood4"
+            android:layout_width="0dp"
+            android:layout_height="125dp"
+            android:layout_marginStart="8dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img_06_desayuno_medialunas_dulce_leche"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imgFood3"
+            app:layout_constraintTop_toTopOf="@+id/imgFood3" />
+
+        <TextView
+            android:id="@+id/tvFood4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_badge_dark"
+            android:fontFamily="@font/open_dyslexic"
+            android:gravity="center"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="6dp"
+            android:text="Medialunas c/ dulce de leche"
+            android:textColor="@color/color_text_primary"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/imgFood4"
+            app:layout_constraintEnd_toEndOf="@+id/imgFood4"
+            app:layout_constraintStart_toStartOf="@+id/imgFood4"
+            app:layout_constraintTop_toBottomOf="@+id/imgFood4" />
+
+        <!-- FILA 3 -->
+        <!-- Imagen 5: Tostado jamón y queso -->
+        <ImageView
+            android:id="@+id/imgFood5"
+            android:layout_width="0dp"
+            android:layout_height="125dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="8dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img_08_desayuno_tostado_jamon_queso"
+            app:layout_constraintEnd_toStartOf="@+id/imgFood6"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvFood3" />
+
+        <TextView
+            android:id="@+id/tvFood5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_badge_dark"
+            android:fontFamily="@font/open_dyslexic"
+            android:gravity="center"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="6dp"
+            android:text="Tostado jamón y queso"
+            android:textColor="@color/color_text_primary"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/imgFood5"
+            app:layout_constraintEnd_toEndOf="@+id/imgFood5"
+            app:layout_constraintStart_toStartOf="@+id/imgFood5"
+            app:layout_constraintTop_toBottomOf="@+id/imgFood5" />
+
+        <!-- Imagen 6: Cereales azucarados -->
+        <ImageView
+            android:id="@+id/imgFood6"
+            android:layout_width="0dp"
+            android:layout_height="125dp"
+            android:layout_marginStart="8dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/img_10_desayuno_cereales_azucarados"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imgFood5"
+            app:layout_constraintTop_toTopOf="@+id/imgFood5" />
+
+        <TextView
+            android:id="@+id/tvFood6"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_badge_dark"
+            android:fontFamily="@font/open_dyslexic"
+            android:gravity="center"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="6dp"
+            android:text="Cereales azucarados"
+            android:textColor="@color/color_text_primary"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/imgFood6"
+            app:layout_constraintEnd_toEndOf="@+id/imgFood6"
+            app:layout_constraintStart_toStartOf="@+id/imgFood6"
+            app:layout_constraintTop_toBottomOf="@+id/imgFood6" />
+
+        <!-- Botón CONFIRMAR MENÚ -->
+        <Button
+            android:id="@+id/btnStartGame2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="0dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/bg_button_green"
+            android:fontFamily="@font/open_dyslexic"
+            android:minHeight="60dp"
+            android:text="CONFIRMAR MENÚ"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:backgroundTint="@null"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvFood5" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

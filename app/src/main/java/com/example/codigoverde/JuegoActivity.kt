@@ -3,17 +3,17 @@ package com.example.codigoverde
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
+import android.widget.ImageButton
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
-class SeleccionarMenuActivity : AppCompatActivity() {
+class JuegoActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_seleccionarmenuactivity)
+        setContentView(R.layout.activity_juego)
 
         val mainView = findViewById<View>(R.id.main)
         val baseMargin = resources.getDimensionPixelSize(R.dimen.screen_margin_horizontal)
@@ -29,11 +29,13 @@ class SeleccionarMenuActivity : AppCompatActivity() {
             insets
         }
 
-        // Botón CONFIRMAR Y EMPEZAR -> Navega a JuegoActivity
-        val btnConfirm = findViewById<Button>(R.id.btnConfirm)
-        btnConfirm?.setOnClickListener {
-            val intent = Intent(this, JuegoActivity::class.java)
+        // Botón Cruz (X) -> Regresa a la primera pantalla (MainActivity)
+        val btnClose = findViewById<ImageButton>(R.id.btnBack2)
+        btnClose?.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
             startActivity(intent)
+            finish()
         }
     }
 }
