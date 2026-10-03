@@ -7,7 +7,8 @@ a fin de comenzar la partida
 
 PASO 02: De un menu desplegable deberá elegir entre dos opciones de juego. A) SELECCION DE HORARIO o B) SELECCIONAR COMIDA 
 
-En la Opcion A) debe primero escoger una sola seleccion del menu siguiente: 
+Independientemente del horario en que el usuario ingrese a la aplicación establece la opcion A)  
+En la opción A) debe escoger una sola selección del menú siguiente: 
 
 - De 06 a 10 hs - DESAYUNO
 - De 11 a 14 hs - ALMUERZO
