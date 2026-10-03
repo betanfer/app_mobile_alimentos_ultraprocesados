@@ -2,7 +2,7 @@ Proceso del Juego
 
 La aplicación de NUTRIVERDE
 
-PASO 01 El Jugador comienza creando un avatar, el cual posee los siguientes atributos, Nombre, Sexo, y niveles predeterminados de Salud 0%, Saciedad 0%, Vitalidad 0%, 
+PASO 01 El Jugador comienza creando un avatar, el cual posee los siguientes atributos, Nombre, Sexo, edad y niveles predeterminados de Salud 0%, Saciedad 0%, Vitalidad 0%, 
 a fin de comenzar la partida
 
 PASO 02: De un menu desplegable deberá elegir entre dos opciones de juego. A) SELECCION DE HORARIO o B) SELECCIONAR COMIDA 
