@@ -21,10 +21,11 @@ Cada Alimento ademas de poseer su nombre, tendra los siguientes atributos indivi
 Al momento de procesar la eleccion de alimentos se establecera la suma de los atributos de cada uno de los alimentos a fin de poder obtener el puntaje final 
 de la Salud, Saciedad y Vitalidad Obtenido por el Jugador. 
 
-En el caso de la otra Opcion B) Se establece la eleccion de los alimentos hasta 3 alimentos como maximos en un lapso de tiempo de 30 segundos, se incorporaran en la Bandeja de Alimentos a fin de obtener el procesamientos de los alimentos elegidos. 
+En el caso de la otra Opción B) El usuario dependiente del horario la aplicación elige un determinado menu.
+Se establece la elección de los alimentos hasta 3 alimentos como maximos en un lapso de tiempo de 30 segundos, se incorporaran en la Bandeja de Alimentos a fin de obtener el procesamientos de los alimentos elegidos. 
 Cada Alimento ademas de poseer su nombre, tendra los siguientes atributos individuales, Salud, Saciedad y Vitalidad.
 Al momento de procesar la eleccion de alimentos se establecera la suma de los atributos de cada uno de los alimentos a fin de poder obtener el puntaje final 
-de la Salud, Saciedad y Vitalidad Obtenido por el Jugador.
+de la Salud, Saciedad y Vitalidad Obtenido por el Jugador. 
 
 Al finalizar ya sea la opcion A) o B) se mostrara una tarjeta con los datos del Avatar del Jugador y el Puntaje Obtenido en Salud, Vitalidad y Saciedad. 
 Lo importante es obtener una puntuacion positiva con el fin de apuntar a que el jugador elija una alimentacion variada y sana, ganando la partida. En caso contrario obtendra si elegiera alimentos grasosos, de una mala alimentacion ricos en azucar, coresterol malo, alimentos ultraprocesados y harina refinadas su puntuacion sera negativa y se mostrara que ha perdido la partida. 
