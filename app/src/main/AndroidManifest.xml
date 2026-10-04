@@ -33,6 +33,24 @@
             android:name=".JuegoActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name=".Paso1AvatarActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".Paso2MenuActivity" />
+        <activity android:name=".SeleccionHorarioActivity" />
+        <activity android:name=".JuegoBandejaActivity" />
+        <activity android:name=".ResultadoActivity" />
+
+
+
+
     </application>
 
 </manifest>
