@@ -24,6 +24,24 @@ class Paso1AvatarActivity : AppCompatActivity() {
         val rgSexo = findViewById<RadioGroup>(R.id.rgSexo)
         val btnComenzar = findViewById<Button>(R.id.btnComenzar)
 
+        val esModoEdicion = intent.getBooleanExtra("MODO_EDICION", false)
+
+        // Precarga los datos guardados si existen
+        val avatarGuardado = UserPreferences.obtenerAvatar(this)
+        if (avatarGuardado != null) {
+            etNombre.setText(avatarGuardado.nombre)
+            etEdad.setText(avatarGuardado.edad.toString())
+            if (avatarGuardado.sexo.equals("Femenino", ignoreCase = true)) {
+                rgSexo.check(R.id.rbFemenino)
+            } else {
+                rgSexo.check(R.id.rbMasculino)
+            }
+        }
+
+        if (esModoEdicion) {
+            btnComenzar.text = "Guardar Cambios"
+        }
+
         btnComenzar.setOnClickListener {
             SoundManager.playBubbly(this)
             val nombre = etNombre.text.toString().trim()
@@ -38,10 +56,19 @@ class Paso1AvatarActivity : AppCompatActivity() {
             val sexo = if (sexoId == R.id.rbMasculino) "Masculino" else "Femenino"
             val avatar = Avatar(nombre, sexo, edadStr.toInt())
 
-            val intent = Intent(this, SeleccionarMenuActivity::class.java).apply {
-                putExtra("EXTRA_AVATAR", avatar)
+            // Guarda persistentemente en SharedPreferences
+            UserPreferences.guardarAvatar(this, avatar)
+
+            if (esModoEdicion) {
+                Toast.makeText(this, "Datos actualizados correctamente", Toast.LENGTH_SHORT).show()
+                finish()
+            } else {
+                val intent = Intent(this, SeleccionarMenuActivity::class.java).apply {
+                    putExtra("EXTRA_AVATAR", avatar)
+                }
+                startActivity(intent)
+                finish()
             }
-            startActivity(intent)
         }
 
         val btnSettings = findViewById<View>(R.id.btnSettings)

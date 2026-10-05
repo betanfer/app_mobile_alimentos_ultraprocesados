@@ -42,19 +42,48 @@
             app:layout_constraintStart_toEndOf="@+id/btnBack3"
             app:layout_constraintTop_toTopOf="@+id/btnBack3" />
 
+        <!-- Avatar / Perfil del usuario (arriba, centrado) -->
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_circle_button"
+            android:contentDescription="Ver detalle del usuario"
+            android:padding="12dp"
+            android:src="@drawable/ic_person"
+            tools:srcCompat="@tools:sample/avatars"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnBack3" />
+
+        <TextView
+            android:id="@+id/tvPerfilDetalle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:fontFamily="@font/open_dyslexic"
+            android:text="Mi Perfil"
+            android:textColor="@color/color_text_secondary"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
         <!-- SECCIÓN 1: SONIDOS -->
         <TextView
             android:id="@+id/tvHeaderSound"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="24dp"
             android:fontFamily="@font/open_dyslexic"
             android:text="SONIDO"
             android:textColor="@color/color_text_secondary"
             android:textSize="14sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnBack3" />
+            app:layout_constraintTop_toBottomOf="@+id/tvPerfilDetalle" />
 
         <LinearLayout
             android:id="@+id/cardSound"

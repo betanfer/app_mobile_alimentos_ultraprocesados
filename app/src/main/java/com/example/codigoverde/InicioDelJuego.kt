@@ -42,12 +42,20 @@ class InicioDelJuego : AppCompatActivity() {
             finish() // Cierra la pantalla actual y vuelve
         }
 
-        // 2. Botón ¡JUGAR! -> Navega a Paso1AvatarActivity (creación del avatar)
+        // 2. Botón ¡JUGAR! -> Si ya existe avatar guardado, avanza directamente a SeleccionarMenuActivity
         val btnStartGame = findViewById<Button>(R.id.btnStartGame)
         btnStartGame.setOnClickListener {
             SoundManager.playStartGame(this)
-            val intent = Intent(this, Paso1AvatarActivity::class.java)
-            startActivity(intent)
+            val avatarGuardado = UserPreferences.obtenerAvatar(this)
+            if (avatarGuardado != null) {
+                val intent = Intent(this, SeleccionarMenuActivity::class.java).apply {
+                    putExtra("EXTRA_AVATAR", avatarGuardado)
+                }
+                startActivity(intent)
+            } else {
+                val intent = Intent(this, Paso1AvatarActivity::class.java)
+                startActivity(intent)
+            }
         }
 
         // 3. Botón Configuración

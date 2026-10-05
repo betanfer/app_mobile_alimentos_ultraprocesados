@@ -1,5 +1,6 @@
 package com.example.codigoverde
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageButton
@@ -43,6 +44,14 @@ class menuSettings : AppCompatActivity() {
         btnClose?.setOnClickListener {
             finish()
         }
+
+        // Clic en avatar / perfil -> Abre DetallesUsuario
+        val abrirDetallesUsuario = View.OnClickListener {
+            SoundManager.playBubbly(this)
+            startActivity(Intent(this, DetallesUsuario::class.java))
+        }
+        findViewById<View>(R.id.imageView2)?.setOnClickListener(abrirDetallesUsuario)
+        findViewById<View>(R.id.tvPerfilDetalle)?.setOnClickListener(abrirDetallesUsuario)
 
         switchSound = findViewById(R.id.switch1)
         switchProtanopia = findViewById(R.id.switch2)
