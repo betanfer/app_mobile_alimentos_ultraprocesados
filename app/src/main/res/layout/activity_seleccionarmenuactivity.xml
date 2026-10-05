@@ -99,6 +99,7 @@
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/tvHorarioActual"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
@@ -114,7 +115,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
                     android:fontFamily="@font/open_dyslexic"
-                    android:text="Desayuno 6-10hs • Almuerzo 12-14hs • Merienda 15-18hs • Cena 19-21hs"
+                    android:text="Desayuno 6-10hs • Almuerzo 11-14hs • Merienda 15-18hs • Cena 19-23hs"
                     android:textColor="@color/color_text_secondary"
                     android:textSize="11sp" />
             </LinearLayout>
@@ -162,6 +163,7 @@
                     android:orientation="horizontal">
 
                     <TextView
+                        android:id="@+id/chipDesayuno"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="6dp"
@@ -174,6 +176,7 @@
                         android:textSize="10sp" />
 
                     <TextView
+                        android:id="@+id/chipAlmuerzo"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="6dp"
@@ -186,13 +189,27 @@
                         android:textSize="10sp" />
 
                     <TextView
+                        android:id="@+id/chipMerienda"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="6dp"
+                        android:background="@drawable/bg_tag"
+                        android:fontFamily="@font/open_dyslexic"
+                        android:paddingHorizontal="10dp"
+                        android:paddingVertical="4dp"
+                        android:text="MERIENDA"
+                        android:textColor="@color/color_text_secondary"
+                        android:textSize="10sp" />
+
+                    <TextView
+                        android:id="@+id/chipCena"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/bg_tag"
                         android:fontFamily="@font/open_dyslexic"
                         android:paddingHorizontal="10dp"
                         android:paddingVertical="4dp"
-                        android:text="MERIENDA"
+                        android:text="CENA"
                         android:textColor="@color/color_text_secondary"
                         android:textSize="10sp" />
                 </LinearLayout>

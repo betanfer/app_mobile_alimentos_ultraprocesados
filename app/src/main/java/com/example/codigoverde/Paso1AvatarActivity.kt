@@ -19,6 +19,7 @@ class Paso1AvatarActivity : AppCompatActivity() {
         val btnComenzar = findViewById<Button>(R.id.btnComenzar)
 
         btnComenzar.setOnClickListener {
+            SoundManager.playBubbly(this)
             val nombre = etNombre.text.toString().trim()
             val edadStr = etEdad.text.toString().trim()
             val sexoId = rgSexo.checkedRadioButtonId
@@ -31,7 +32,7 @@ class Paso1AvatarActivity : AppCompatActivity() {
             val sexo = if (sexoId == R.id.rbMasculino) "Masculino" else "Femenino"
             val avatar = Avatar(nombre, sexo, edadStr.toInt())
 
-            val intent = Intent(this, Paso2MenuActivity::class.java).apply {
+            val intent = Intent(this, SeleccionarMenuActivity::class.java).apply {
                 putExtra("EXTRA_AVATAR", avatar)
             }
             startActivity(intent)

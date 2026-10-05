@@ -6,7 +6,7 @@ object AlimentoRepository {
     fun cargarAlimentos(context: Context): List<Alimento> {
         val lista = mutableListOf<Alimento>()
         context.assets.open("menu_alimentos_puntuado.txt").bufferedReader().useLines { lines ->
-            lines.drop(1).forEach { line ->
+            lines.drop(1).forEachIndexed { index, line ->
                 val cols = line.split("\t")
                 if (cols.size >= 6) {
                     lista.add(
@@ -16,7 +16,8 @@ object AlimentoRepository {
                             opcion = cols[2].trim(),
                             nivelSaludable = cols[3].trim().toIntOrNull() ?: 0,
                             saciedad = cols[4].trim().toIntOrNull() ?: 0,
-                            vitalidad = cols[5].trim().toIntOrNull() ?: 0
+                            vitalidad = cols[5].trim().toIntOrNull() ?: 0,
+                            numero = index + 1
                         )
                     )
                 }

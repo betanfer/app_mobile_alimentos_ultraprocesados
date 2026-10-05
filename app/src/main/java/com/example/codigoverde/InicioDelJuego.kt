@@ -33,13 +33,15 @@ class InicioDelJuego : AppCompatActivity() {
         // 1. Botón Volver (<)
         val btnBack = findViewById<ImageButton>(R.id.btnBack)
         btnBack.setOnClickListener {
+            SoundManager.playBubbly(this)
             finish() // Cierra la pantalla actual y vuelve
         }
 
-        // 2. Botón ¡JUGAR! -> Navega a SeleccionarMenuActivity
+        // 2. Botón ¡JUGAR! -> Navega a Paso1AvatarActivity (creación del avatar)
         val btnStartGame = findViewById<Button>(R.id.btnStartGame)
         btnStartGame.setOnClickListener {
-            val intent = Intent(this, SeleccionarMenuActivity::class.java)
+            SoundManager.playStartGame(this)
+            val intent = Intent(this, Paso1AvatarActivity::class.java)
             startActivity(intent)
         }
     }

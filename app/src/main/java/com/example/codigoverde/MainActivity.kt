@@ -14,6 +14,9 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
+        // Precarga los sonidos al abrir la app (SoundPool carga de forma asíncrona)
+        SoundManager.init(applicationContext)
+
         val mainView = findViewById<View>(R.id.main)
         val baseMargin = resources.getDimensionPixelSize(R.dimen.screen_margin_horizontal)
 
@@ -31,6 +34,7 @@ class MainActivity : AppCompatActivity() {
         val btnInicio = findViewById<View>(R.id.btnBadge)
 
         btnInicio.setOnClickListener {
+            SoundManager.playBubbly(this)
             // Abre directamente la pantalla del juego
             val intent = Intent(this, InicioDelJuego::class.java)
             startActivity(intent)
