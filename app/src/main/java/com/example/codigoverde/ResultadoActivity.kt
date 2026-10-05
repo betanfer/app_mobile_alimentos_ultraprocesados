@@ -3,28 +3,42 @@ package com.example.codigoverde
 import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.example.codigoverde.Avatar
-import kotlin.random.Random
 
 class ResultadoActivity : AppCompatActivity() {
+
+    companion object {
+        // En una partida se eligen hasta 3 alimentos. Cada uno otorga hasta 6 pts (2 salud + 2 saciedad + 2 vitalidad).
+        const val MAXIMO_POSIBLE = 18
+        const val UMBRAL_60_PORCIENTO = 0.60
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_resultado)
 
-        // Reproduce de forma aleatoria (positivo o negativo) hasta que se definan los puntajes.
-        // Se retrasa para que no se superponga con el sonido de fin de partida.
+        val avatar = intent.getSerializableExtra("EXTRA_AVATAR") as Avatar
+        val tvResultado = findViewById<TextView>(R.id.tvResultado)
+
+        // Cálculo de puntajes y umbral del 60%
+        val puntajeTotal = avatar.salud + avatar.saciedad + avatar.vitalidad
+        val porcentajeObtenido = (puntajeTotal.toDouble() / MAXIMO_POSIBLE) * 100
+        val esPositivo = puntajeTotal >= (MAXIMO_POSIBLE * UMBRAL_60_PORCIENTO)
+
+        // Reproduce únicamente el sonido correspondiente (positivo si >= 60%, negativo si < 60%)
         window.decorView.postDelayed({
             if (isFinishing || isDestroyed) return@postDelayed
-            if (Random.nextBoolean()) {
+            if (esPositivo) {
                 SoundManager.playResultPositive(this)
             } else {
                 SoundManager.playResultNegative(this)
             }
-        }, 1300)
+        }, 300)
 
-        val avatar = intent.getSerializableExtra("EXTRA_AVATAR") as Avatar
-        val tvResultado = findViewById<TextView>(R.id.tvResultado)
+        val mensajeFinal = if (esPositivo) {
+            "¡PARTIDA GANADA! 🎉\nExcelente combinación de alimentos saludables."
+        } else {
+            "¡PARTIDA PERDIDA! ⚠️\nCuidado con los ultraprocesados y calorías vacías."
+        }
 
         tvResultado.text = """
             ===========================
@@ -40,7 +54,12 @@ class ResultadoActivity : AppCompatActivity() {
             Salud: ${avatar.salud} pts
             Saciedad: ${avatar.saciedad} pts
             Vitalidad: ${avatar.vitalidad} pts
+            Total: $puntajeTotal / $MAXIMO_POSIBLE pts (${String.format("%.1f", porcentajeObtenido)}%)
+            
+            ---------------------------
+            EVALUACIÓN:
+            ---------------------------
+            $mensajeFinal
         """.trimIndent()
     }
 }
-

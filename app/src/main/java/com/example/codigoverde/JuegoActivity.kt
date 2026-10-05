@@ -142,6 +142,7 @@ class JuegoActivity : AppCompatActivity() {
             bandeja.add(alimento)
             SoundManager.playBubbly(this)
         } else {
+            SoundManager.playError(this)
             Toast.makeText(this, "Máximo $MAX_ALIMENTOS alimentos", Toast.LENGTH_SHORT).show()
             return
         }
@@ -173,6 +174,10 @@ class JuegoActivity : AppCompatActivity() {
                 if (segundosRestantes <= 10) {
                     tvTimer.setTextColor(ContextCompat.getColor(this@JuegoActivity, R.color.color_error))
                 }
+                // Sonido de prisa cuando queden 5 segundos o menos
+                if (segundosRestantes in 1..5) {
+                    SoundManager.playUrgency(this@JuegoActivity)
+                }
             }
 
             // Se ejecuta cuando el temporizador llega a cero
@@ -194,8 +199,6 @@ class JuegoActivity : AppCompatActivity() {
         if (partidaTerminada) return
         partidaTerminada = true
         timer?.cancel()
-
-        SoundManager.playGameFinish(this)
 
         for (item in bandeja) {
             avatar.salud += item.nivelSaludable

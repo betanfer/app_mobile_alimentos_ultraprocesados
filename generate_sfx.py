@@ -207,6 +207,60 @@ def generate_result_negative():
 
     return samples
 
+# 6. Urgency Timer Warning (Quick tense clock tick/alarm alert for <= 5s)
+def generate_urgency():
+    duration = 0.25
+    num_samples = int(SAMPLE_RATE * duration)
+    samples = [0.0] * num_samples
+    
+    # Two crisp, high, urgent clock pips (tick-tock feel in rapid succession)
+    pips = [
+        (0.00, 0.09, 880.0),   # A5
+        (0.08, 0.12, 1174.66), # D6
+    ]
+    for start_t, dur, freq in pips:
+        start_idx = int(start_t * SAMPLE_RATE)
+        end_idx = min(num_samples, start_idx + int(dur * SAMPLE_RATE))
+        for i in range(start_idx, end_idx):
+            t = (i - start_idx) / SAMPLE_RATE
+            attack = min(1.0, t / 0.004)
+            decay = math.exp(-t * 28.0)
+            env = attack * decay
+            # Sharp triangle/sine blend
+            w = math.sin(2 * math.pi * freq * t) + 0.3 * math.sin(4 * math.pi * freq * t)
+            samples[i] += w * env * 0.55
+            
+    return samples
+
+# 7. Error / Limit Reached (Soft friendly buzzer when trying to select 4th item)
+def generate_error():
+    duration = 0.35
+    num_samples = int(SAMPLE_RATE * duration)
+    samples = [0.0] * num_samples
+    
+    # Two quick low thuds/buzzes (bonk-bonk)
+    pulses = [
+        (0.00, 0.13, 220.0), # A3
+        (0.14, 0.16, 174.6), # F3
+    ]
+    for start_t, dur, freq in pulses:
+        start_idx = int(start_t * SAMPLE_RATE)
+        end_idx = min(num_samples, start_idx + int(dur * SAMPLE_RATE))
+        for i in range(start_idx, end_idx):
+            t = (i - start_idx) / SAMPLE_RATE
+            attack = min(1.0, t / 0.008)
+            decay = math.exp(-t * 14.0)
+            env = attack * decay
+            
+            # Soft buzz timbre (low harmonics + gentle distortion)
+            w = (math.sin(2 * math.pi * freq * t) +
+                 0.45 * math.sin(4 * math.pi * freq * t) +
+                 0.25 * math.sin(6 * math.pi * freq * t) +
+                 0.15 * math.sin(8 * math.pi * freq * t))
+            samples[i] += w * env * 0.45
+            
+    return samples
+
 if __name__ == '__main__':
     out_dir = r"app/src/main/res/raw"
     os.makedirs(out_dir, exist_ok=True)
@@ -216,4 +270,6 @@ if __name__ == '__main__':
     save_wav(os.path.join(out_dir, "sfx_game_finish.wav"), generate_game_finish())
     save_wav(os.path.join(out_dir, "sfx_result_positive.wav"), generate_result_positive())
     save_wav(os.path.join(out_dir, "sfx_result_negative.wav"), generate_result_negative())
+    save_wav(os.path.join(out_dir, "sfx_urgency_timer.wav"), generate_urgency())
+    save_wav(os.path.join(out_dir, "sfx_error.wav"), generate_error())
     print("All sound effects created successfully!")
