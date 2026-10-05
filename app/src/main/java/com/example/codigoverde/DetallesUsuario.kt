@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
-class MainActivity : AppCompatActivity() {
+class DetallesUsuario : AppCompatActivity() {
 
     private var currentTheme: String = ThemeUtils.THEME_DEFAULT
 
@@ -16,11 +16,8 @@ class MainActivity : AppCompatActivity() {
         currentTheme = ThemeUtils.applyTheme(this)
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_detalles_usuario)
         ThemeUtils.updateActivityColors(this)
-
-        // Precarga los sonidos al abrir la app (SoundPool carga de forma asíncrona)
-        SoundManager.init(applicationContext)
 
         val mainView = findViewById<View>(R.id.main)
         val baseMargin = resources.getDimensionPixelSize(R.dimen.screen_margin_horizontal)
@@ -34,15 +31,6 @@ class MainActivity : AppCompatActivity() {
                 systemBars.bottom + baseMargin
             )
             insets
-        }
-
-        val btnInicio = findViewById<View>(R.id.btnBadge)
-
-        btnInicio.setOnClickListener {
-            SoundManager.playBubbly(this)
-            // Abre directamente la pantalla del juego
-            val intent = Intent(this, InicioDelJuego::class.java)
-            startActivity(intent)
         }
 
         val btnSettings = findViewById<View>(R.id.btnSettings)

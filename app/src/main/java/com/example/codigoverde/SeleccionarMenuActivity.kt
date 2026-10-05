@@ -20,6 +20,8 @@ import java.util.Calendar
  */
 class SeleccionarMenuActivity : AppCompatActivity() {
 
+    private var currentTheme: String = ThemeUtils.THEME_DEFAULT
+
     private lateinit var avatar: Avatar
 
     private var modoAutomatico = true
@@ -30,9 +32,11 @@ class SeleccionarMenuActivity : AppCompatActivity() {
     private lateinit var chips: Map<String, TextView>
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        currentTheme = ThemeUtils.applyTheme(this)
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_seleccionarmenuactivity)
+        ThemeUtils.updateActivityColors(this)
 
         val mainView = findViewById<View>(R.id.main)
         val baseMargin = resources.getDimensionPixelSize(R.dimen.screen_margin_horizontal)
@@ -105,7 +109,21 @@ class SeleccionarMenuActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        val btnSettings = findViewById<View>(R.id.btnSettings)
+        btnSettings?.setOnClickListener {
+            SoundManager.playBubbly(this)
+            startActivity(Intent(this, menuSettings::class.java))
+        }
+
         actualizarSeleccion()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        ThemeUtils.updateActivityColors(this)
+        if (currentTheme != ThemeUtils.getSelectedTheme(this)) {
+            recreate()
+        }
     }
 
     private fun actualizarSeleccion() {

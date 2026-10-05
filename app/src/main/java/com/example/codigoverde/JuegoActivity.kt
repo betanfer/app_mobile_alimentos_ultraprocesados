@@ -30,6 +30,8 @@ class JuegoActivity : AppCompatActivity() {
         private const val TIEMPO_TOTAL_MS = 30000L
     }
 
+    private var currentTheme: String = ThemeUtils.THEME_DEFAULT
+
     // Referencia al temporizador para poder cancelarlo y evitar fugas de memoria
     private var timer: CountDownTimer? = null
 
@@ -49,9 +51,11 @@ class JuegoActivity : AppCompatActivity() {
 
     // Se crea la pantalla
     override fun onCreate(savedInstanceState: Bundle?) {
+        currentTheme = ThemeUtils.applyTheme(this)
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_juego)
+        ThemeUtils.updateActivityColors(this)
 
         val mainView = findViewById<View>(R.id.main)
         val baseMargin = resources.getDimensionPixelSize(R.dimen.screen_margin_horizontal)
@@ -84,6 +88,13 @@ class JuegoActivity : AppCompatActivity() {
             intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
             startActivity(intent)
             finish()
+        }
+
+        // Botón Configuración
+        val btnSettings = findViewById<ImageButton>(R.id.btnSettings)
+        btnSettings?.setOnClickListener {
+            SoundManager.playBubbly(this)
+            startActivity(Intent(this, menuSettings::class.java))
         }
 
         // Botón CONFIRMAR MENÚ -> procesa la bandeja
@@ -161,6 +172,11 @@ class JuegoActivity : AppCompatActivity() {
     // La pantalla pasa a primer plano y se vuelve interactiva
     override fun onResume() {
         super.onResume()
+        ThemeUtils.updateActivityColors(this)
+        if (currentTheme != ThemeUtils.getSelectedTheme(this)) {
+            recreate()
+            return
+        }
         if (partidaTerminada) return
 
         // Se crea e inicia el temporizador (continúa desde el tiempo restante)

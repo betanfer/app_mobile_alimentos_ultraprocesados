@@ -32,7 +32,19 @@ object SoundManager {
         }
     }
 
+    fun isSoundEnabled(context: Context): Boolean {
+        val prefs = context.getSharedPreferences("settings", Context.MODE_PRIVATE)
+        return prefs.getBoolean("sound_enabled", true)
+    }
+
+    fun setSoundEnabled(context: Context, enabled: Boolean) {
+        val prefs = context.getSharedPreferences("settings", Context.MODE_PRIVATE)
+        prefs.edit().putBoolean("sound_enabled", enabled).apply()
+    }
+
     private fun playSound(context: Context, resId: Int) {
+        if (!isSoundEnabled(context)) return
+
         if (soundPool == null) {
             init(context.applicationContext)
         }

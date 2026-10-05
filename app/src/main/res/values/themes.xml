@@ -9,12 +9,13 @@
 
         <!-- Colores primarios del Material Theme -->
         <item name="colorPrimary">@color/color_success</item>
+        <item name="android:colorPrimary">@color/color_success</item>
         <item name="colorPrimaryVariant">@color/color_text_secondary</item>
-        <item name="colorOnPrimary">@color/color_background</item>
+        <item name="colorOnPrimary">@color/color_button_primary_text</item>
 
         <item name="colorSecondary">@color/color_button_secondary</item>
         <item name="colorSecondaryVariant">@color/color_text_secondary</item>
-        <item name="colorOnSecondary">@color/color_background</item>
+        <item name="colorOnSecondary">@color/color_button_secondary_text</item>
 
         <item name="colorError">@color/color_error</item>
         <item name="colorOnError">@color/color_text_primary</item>
@@ -44,12 +45,14 @@
     <!-- ============================================= -->
 
     <style name="Theme.CodigoVerde.Protanopia" parent="Theme.CodigoVerde">
+
         <item name="colorPrimary">@color/color_protan_success</item>
+        <item name="android:colorPrimary">@color/color_protan_success</item>
         <item name="colorPrimaryVariant">@color/color_protan_text_secondary</item>
-        <item name="colorOnPrimary">@color/color_protan_background</item>
+        <item name="colorOnPrimary">#FF1F1F29</item>
 
         <item name="colorSecondary">@color/color_protan_text_secondary</item>
-        <item name="colorOnSecondary">@color/color_protan_background</item>
+        <item name="colorOnSecondary">#FF1F1F29</item>
 
         <item name="colorError">@color/color_protan_error</item>
         <item name="colorOnError">@color/color_protan_text_primary</item>
@@ -70,12 +73,14 @@
     <!-- ============================================= -->
 
     <style name="Theme.CodigoVerde.Tritanopia" parent="Theme.CodigoVerde">
+
         <item name="colorPrimary">@color/color_tritan_success</item>
+        <item name="android:colorPrimary">@color/color_tritan_success</item>
         <item name="colorPrimaryVariant">@color/color_tritan_text_secondary</item>
-        <item name="colorOnPrimary">@color/color_tritan_background</item>
+        <item name="colorOnPrimary">#FF192929</item>
 
         <item name="colorSecondary">@color/color_tritan_text_secondary</item>
-        <item name="colorOnSecondary">@color/color_tritan_background</item>
+        <item name="colorOnSecondary">#FF192929</item>
 
         <item name="colorError">@color/color_tritan_error</item>
         <item name="colorOnError">@color/color_tritan_text_primary</item>
@@ -125,12 +130,10 @@
 
     <!-- ============================================= -->
     <!--  BOTÓN PRIMARIO                                -->
-    <!--  Verde success, ancho completo, esquinas       -->
-    <!--  redondeadas, con márgenes laterales.          -->
     <!-- ============================================= -->
 
     <style name="Widget.CodigoVerde.Button.Primary" parent="Widget.MaterialComponents.Button">
-        <!-- Color de fondo y texto -->
+        <!-- Color de fondo y texto verde original -->
         <item name="backgroundTint">@color/color_button_primary</item>
         <item name="android:textColor">@color/color_button_primary_text</item>
 
@@ -161,13 +164,9 @@
 
     <!-- ============================================= -->
     <!--  BOTÓN SECUNDARIO                              -->
-    <!--  Turquesa, pequeño ~1:1, bordes redondeados.   -->
-    <!--  Pensado para esquina superior derecha          -->
-    <!--  (menú, opciones, configuración).               -->
     <!-- ============================================= -->
 
     <style name="Widget.CodigoVerde.Button.Secondary" parent="Widget.MaterialComponents.Button">
-        <!-- Color de fondo y texto -->
         <item name="backgroundTint">@color/color_button_secondary</item>
         <item name="android:textColor">@color/color_button_secondary_text</item>
 
@@ -194,8 +193,7 @@
 
 
     <!-- ============================================= -->
-    <!--  BOTÓN ICONO SECUNDARIO (para usar con         -->
-    <!--  MaterialButton + iconGravity="textStart")     -->
+    <!--  BOTÓN ICONO SECUNDARIO                       -->
     <!-- ============================================= -->
 
     <style name="Widget.CodigoVerde.Button.Icon" parent="Widget.MaterialComponents.Button.Icon">

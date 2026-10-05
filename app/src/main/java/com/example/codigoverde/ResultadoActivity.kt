@@ -1,6 +1,8 @@
 package com.example.codigoverde
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
@@ -12,9 +14,13 @@ class ResultadoActivity : AppCompatActivity() {
         const val UMBRAL_60_PORCIENTO = 0.60
     }
 
+    private var currentTheme: String = ThemeUtils.THEME_DEFAULT
+
     override fun onCreate(savedInstanceState: Bundle?) {
+        currentTheme = ThemeUtils.applyTheme(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_resultado)
+        ThemeUtils.updateActivityColors(this)
 
         val avatar = intent.getSerializableExtra("EXTRA_AVATAR") as Avatar
         val tvResultado = findViewById<TextView>(R.id.tvResultado)
@@ -61,5 +67,19 @@ class ResultadoActivity : AppCompatActivity() {
             ---------------------------
             $mensajeFinal
         """.trimIndent()
+
+        val btnSettings = findViewById<View>(R.id.btnSettings)
+        btnSettings?.setOnClickListener {
+            SoundManager.playBubbly(this)
+            startActivity(Intent(this, menuSettings::class.java))
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        ThemeUtils.updateActivityColors(this)
+        if (currentTheme != ThemeUtils.getSelectedTheme(this)) {
+            recreate()
+        }
     }
 }

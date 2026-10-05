@@ -27,18 +27,32 @@
             app:layout_constraintTop_toTopOf="parent"
             app:tint="#FFFFFF" />
 
+        <!-- Botón Configuración (esquina superior derecha) -->
+        <ImageButton
+            android:id="@+id/btnSettings"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/bg_circle_button"
+            android:contentDescription="Configuración"
+            android:padding="12dp"
+            android:src="@drawable/ic_settings"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="#FFFFFF" />
+
         <!-- Título principal (se completa según la comida elegida) -->
         <TextView
             android:id="@+id/tvGameTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
+            android:layout_marginEnd="8dp"
             android:fontFamily="@font/open_dyslexic"
             android:text="OPCIONES DE DESAYUNO"
             android:textAppearance="@style/TextAppearance.CodigoVerde.Title"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="@+id/btnBack2"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btnSettings"
             app:layout_constraintStart_toEndOf="@+id/btnBack2"
             app:layout_constraintTop_toTopOf="@+id/btnBack2" />
 

@@ -2,6 +2,7 @@ package com.example.codigoverde
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.RadioGroup
@@ -9,9 +10,14 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 class Paso1AvatarActivity : AppCompatActivity() {
+
+    private var currentTheme: String = ThemeUtils.THEME_DEFAULT
+
     override fun onCreate(savedInstanceState: Bundle?) {
+        currentTheme = ThemeUtils.applyTheme(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_paso1_avatar)
+        ThemeUtils.updateActivityColors(this)
 
         val etNombre = findViewById<EditText>(R.id.etNombre)
         val etEdad = findViewById<EditText>(R.id.etEdad)
@@ -36,6 +42,20 @@ class Paso1AvatarActivity : AppCompatActivity() {
                 putExtra("EXTRA_AVATAR", avatar)
             }
             startActivity(intent)
+        }
+
+        val btnSettings = findViewById<View>(R.id.btnSettings)
+        btnSettings?.setOnClickListener {
+            SoundManager.playBubbly(this)
+            startActivity(Intent(this, menuSettings::class.java))
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        ThemeUtils.updateActivityColors(this)
+        if (currentTheme != ThemeUtils.getSelectedTheme(this)) {
+            recreate()
         }
     }
 }

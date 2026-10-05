@@ -11,10 +11,15 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 class InicioDelJuego : AppCompatActivity() {
+
+    private var currentTheme: String = ThemeUtils.THEME_DEFAULT
+
     override fun onCreate(savedInstanceState: Bundle?) {
+        currentTheme = ThemeUtils.applyTheme(this)
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_iniciodeljuego)
+        ThemeUtils.updateActivityColors(this)
 
         val mainView = findViewById<View>(R.id.main)
         val baseMargin = resources.getDimensionPixelSize(R.dimen.screen_margin_horizontal)
@@ -43,6 +48,21 @@ class InicioDelJuego : AppCompatActivity() {
             SoundManager.playStartGame(this)
             val intent = Intent(this, Paso1AvatarActivity::class.java)
             startActivity(intent)
+        }
+
+        // 3. Botón Configuración
+        val btnSettings = findViewById<View>(R.id.btnSettings)
+        btnSettings?.setOnClickListener {
+            SoundManager.playBubbly(this)
+            startActivity(Intent(this, menuSettings::class.java))
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        ThemeUtils.updateActivityColors(this)
+        if (currentTheme != ThemeUtils.getSelectedTheme(this)) {
+            recreate()
         }
     }
 }
