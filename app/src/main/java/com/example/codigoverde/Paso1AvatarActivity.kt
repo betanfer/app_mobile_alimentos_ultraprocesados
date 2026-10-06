@@ -19,44 +19,42 @@ class Paso1AvatarActivity : AppCompatActivity() {
         setContentView(R.layout.activity_paso1_avatar)
         ThemeUtils.updateActivityColors(this)
 
-        val etNombre = findViewById<EditText>(R.id.etNombre)
-        val etEdad = findViewById<EditText>(R.id.etEdad)
-        val rgSexo = findViewById<RadioGroup>(R.id.rgSexo)
-        val btnComenzar = findViewById<Button>(R.id.btnComenzar)
+        val etNombre = findViewById<EditText>(R.id.etNombreAvatar)
+        val rgSexo = findViewById<RadioGroup>(R.id.rgGenero)
+        val btnContinuar = findViewById<Button>(R.id.btnContinuar)
 
         val esModoEdicion = intent.getBooleanExtra("MODO_EDICION", false)
 
-        // Precarga los datos guardados si existen
+        // Precarga de datos
         val avatarGuardado = UserPreferences.obtenerAvatar(this)
         if (avatarGuardado != null) {
             etNombre.setText(avatarGuardado.nombre)
-            etEdad.setText(avatarGuardado.edad.toString())
-            if (avatarGuardado.sexo.equals("Femenino", ignoreCase = true)) {
-                rgSexo.check(R.id.rbFemenino)
+            if (avatarGuardado.sexo.equals("Femenino", ignoreCase = true) || avatarGuardado.sexo.equals("Mujer", ignoreCase = true)) {
+                rgSexo.check(R.id.rbMujer)
             } else {
-                rgSexo.check(R.id.rbMasculino)
+                rgSexo.check(R.id.rbHombre)
             }
         }
 
         if (esModoEdicion) {
-            btnComenzar.text = "Guardar Cambios"
+            btnContinuar.text = "Guardar Cambios"
         }
 
-        btnComenzar.setOnClickListener {
+        btnContinuar.setOnClickListener {
             SoundManager.playBubbly(this)
             val nombre = etNombre.text.toString().trim()
-            val edadStr = etEdad.text.toString().trim()
             val sexoId = rgSexo.checkedRadioButtonId
 
-            if (nombre.isEmpty() || edadStr.isEmpty() || sexoId == -1) {
-                Toast.makeText(this, "Complete todos los campos", Toast.LENGTH_SHORT).show()
+            if (nombre.isEmpty() || sexoId == -1) {
+                Toast.makeText(this, "Por favor, ingresá tu nombre", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
-            val sexo = if (sexoId == R.id.rbMasculino) "Masculino" else "Femenino"
-            val avatar = Avatar(nombre, sexo, edadStr.toInt())
+            val sexo = if (sexoId == R.id.rbHombre) "Hombre" else "Mujer"
+            val edadActual = avatarGuardado?.edad ?: 0
+            val avatar = Avatar(nombre, sexo, edadActual)
 
-            // Guarda persistentemente en SharedPreferences
+            // Guardar permanentemente
             UserPreferences.guardarAvatar(this, avatar)
 
             if (esModoEdicion) {

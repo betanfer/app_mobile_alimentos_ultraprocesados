@@ -1,5 +1,23 @@
 <resources>
-    <string name="app_name">CodigoVerde</string>
-    <string name="btn_back_description">Volver</string>
-    <string name="img_plate_description">Plato de comida</string>
+    <!-- Cadenas para activity_detalles_usuario -->
+    <string name="btn_back_description">Volver a la pantalla anterior</string>
+    <string name="btn_settings_description">Configuración</string>
+    <string name="desc_avatar_usuario">Avatar del usuario</string>
+    <string name="label_nombre_usuario">Nombre</string>
+    <string name="label_edad_usuario">Edad</string>
+    <string name="label_genero_usuario">Género</string>
+    <string name="btn_editar_datos">Editar datos</string>
+
+    <!-- Cadenas agregadas para activity_paso1_avatar -->
+    <string name="title_crea_avatar">Creá tu avatar</string>
+    <string name="subtitle_crea_avatar">Tu camino hacia hábitos más verdes empieza con vos.</string>
+    <string name="desc_avatar_seleccionado">Avatar seleccionado</string>
+    <string name="label_nombre_avatar">Nombre del avatar</string>
+    <string name="hint_nombre_avatar">Ej. Mateo</string>
+    <string name="desc_nombre_avatar">Así aparecerás en tu perfil y en los juegos.</string>
+    <string name="label_elegi_avatar">Elegí tu avatar</string>
+    <string name="option_hombre">♂  Hombre</string>
+    <string name="option_mujer">♀  Mujer</string>
+    <string name="footer_cambiar_avatar">Podés cambiar tu avatar más adelante.</string>
+    <string name="btn_continuar">Continuar  ➔</string>
 </resources>

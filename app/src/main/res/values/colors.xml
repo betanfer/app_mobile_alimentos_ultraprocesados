@@ -52,4 +52,27 @@
     <color name="color_tritan_warning">#FFF6BBBF</color>
     <color name="color_tritan_error">#FFB5595A</color>
 
+
+
+    <!-- DETALLES USUARIO -->
+    <!-- Fondo y Contenedores -->
+    <color name="bg_dark">#0D1F22</color>
+    <color name="card_bg">#132B2F</color>
+    <color name="card_border">#1D3E43</color>
+
+    <!-- Textos -->
+    <color name="text_white">#FFFFFF</color>
+    <color name="text_secondary">#8C9E9E</color>
+
+    <!-- Colores de Acento y Badges -->
+    <color name="green_primary">#76C893</color>
+    <color name="green_light">#99D98C</color>
+    <color name="orange_accent">#D97706</color>
+    <color name="red_alert">#E56B6F</color>
+    <color name="gold_xp">#E5A93C</color>
+
+    <!-- Badges traslúcidos -->
+    <color name="badge_green_bg">#1B382B</color>
+    <color name="badge_blue_bg">#18363E</color>
+    <color name="badge_orange_bg">#3A2C1D</color>
 </resources>
