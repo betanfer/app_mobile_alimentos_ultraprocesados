@@ -9,15 +9,13 @@
     <string name="btn_editar_datos">Editar datos</string>
 
     <!-- Cadenas agregadas para activity_paso1_avatar -->
-    <string name="title_crea_avatar">Creá tu avatar</string>
-    <string name="subtitle_crea_avatar">Tu camino hacia hábitos más verdes empieza con vos.</string>
+    <string name="title_crea_avatar">Crea tu Avatar</string>
+    <string name="subtitle_crea_avatar">Personaliza tu perfil para comenzar la experiencia</string>
     <string name="desc_avatar_seleccionado">Avatar seleccionado</string>
-    <string name="label_nombre_avatar">Nombre del avatar</string>
-    <string name="hint_nombre_avatar">Ej. Mateo</string>
-    <string name="desc_nombre_avatar">Así aparecerás en tu perfil y en los juegos.</string>
-    <string name="label_elegi_avatar">Elegí tu avatar</string>
-    <string name="option_hombre">♂  Hombre</string>
-    <string name="option_mujer">♀  Mujer</string>
-    <string name="footer_cambiar_avatar">Podés cambiar tu avatar más adelante.</string>
-    <string name="btn_continuar">Continuar  ➔</string>
+    <string name="label_nombre_avatar">Nombre de tu Avatar</string>
+    <string name="label_elegi_avatar">Elige la base de tu avatar</string>
+    <string name="option_hombre">Masculino</string>
+    <string name="option_mujer">Femenino</string>
+    <string name="footer_cambiar_avatar">Podrás cambiar la apariencia de tu avatar en cualquier momento desde tu perfil.</string>
+    <string name="btn_continuar">Continuar</string>
 </resources>
