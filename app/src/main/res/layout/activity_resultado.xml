@@ -25,10 +25,62 @@
             app:tint="#FFFFFF" />
     </RelativeLayout>
 
-    <TextView
-        android:id="@+id/tvResultado"
+    <!-- Scroll: el resumen y el dato curioso pueden no entrar en pantallas chicas -->
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:lineSpacingExtra="4dp" />
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="false">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvResultado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="4dp"
+                android:textSize="18sp" />
+
+            <!-- Dato curioso de uno de los alimentos elegidos (se oculta si no hay dato) -->
+            <LinearLayout
+                android:id="@+id/cardDatoCurioso"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/bg_card_unselected"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/titulo_dato_curioso"
+                    android:textColor="?android:attr/textColorSecondary"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvPlatoDatoCurioso"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:textColor="?android:attr/textColorPrimary"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvDatoCurioso"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:lineSpacingExtra="3dp"
+                    android:textColor="?android:attr/textColorPrimary"
+                    android:textSize="15sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

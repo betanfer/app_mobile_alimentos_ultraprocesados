@@ -29,8 +29,22 @@ class ResultadoActivity : AppCompatActivity() {
 
         val tvResultado = findViewById<TextView>(R.id.tvResultado)
 
+        val cardDatoCurioso = findViewById<View>(R.id.cardDatoCurioso)
+        val tvPlatoDatoCurioso = findViewById<TextView>(R.id.tvPlatoDatoCurioso)
+        val tvDatoCurioso = findViewById<TextView>(R.id.tvDatoCurioso)
+
         viewModel.textoResumen.observe(this) { texto ->
             tvResultado.text = texto
+        }
+
+        viewModel.datoCurioso.observe(this) { dato ->
+            if (dato == null) {
+                cardDatoCurioso.visibility = View.GONE
+            } else {
+                tvPlatoDatoCurioso.text = dato.plato
+                tvDatoCurioso.text = dato.dato
+                cardDatoCurioso.visibility = View.VISIBLE
+            }
         }
 
         viewModel.eventoSonido.observe(this) { evento ->

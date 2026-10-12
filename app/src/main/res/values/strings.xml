@@ -1,4 +1,5 @@
 <resources>
+    <string name="titulo_dato_curioso">¿SABÍAS QUE…?</string>
     <string name="app_name">CodigoVerde</string>
     <string name="img_plate_description">Plato de comida</string>
 

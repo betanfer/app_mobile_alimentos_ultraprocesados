@@ -1,11 +1,16 @@
 package com.example.codigoverde.viewmodel
 
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import com.example.codigoverde.data.DatoCuriosoRepository
+import com.example.codigoverde.model.Alimento
 import com.example.codigoverde.model.Avatar
+import com.example.codigoverde.model.DatoCurioso
 import com.example.codigoverde.model.ResultadoPartida
 import com.example.codigoverde.util.Event
+import kotlin.random.Random
 
 /**
  * ViewModel para la pantalla de Resultados.
@@ -13,8 +18,9 @@ import com.example.codigoverde.util.Event
  * - Puntaje final, porcentaje, estado de victoria/derrota.
  * - Formato del texto del resumen del jugador.
  * - Evento de sonido según el resultado.
+ * - Dato curioso aleatorio de uno de los alimentos elegidos.
  */
-class ResultadoViewModel : ViewModel() {
+class ResultadoViewModel(application: Application) : AndroidViewModel(application) {
 
     private val _resultado = MutableLiveData<ResultadoPartida>()
     val resultado: LiveData<ResultadoPartida> = _resultado
@@ -24,6 +30,13 @@ class ResultadoViewModel : ViewModel() {
 
     private val _eventoSonido = MutableLiveData<Event<Boolean>>() // true = positivo, false = negativo
     val eventoSonido: LiveData<Event<Boolean>> = _eventoSonido
+
+    // null = no hay dato para mostrar (la vista oculta la tarjeta)
+    private val _datoCurioso = MutableLiveData<DatoCurioso?>()
+    val datoCurioso: LiveData<DatoCurioso?> = _datoCurioso
+
+    // El sorteo se hace una sola vez: el ViewModel sobrevive a la rotación y el dato no cambia
+    private var datoYaSorteado = false
 
     fun cargarResultado(resultadoPartida: ResultadoPartida?, avatarFallback: Avatar?) {
         val res = resultadoPartida ?: run {
@@ -69,5 +82,25 @@ class ResultadoViewModel : ViewModel() {
         """.trimIndent()
 
         _eventoSonido.value = Event(res.esVictoria)
+
+        if (!datoYaSorteado) {
+            datoYaSorteado = true
+            val datos = DatoCuriosoRepository.cargarDatos(getApplication())
+            _datoCurioso.value = elegirDatoCurioso(res.alimentosElegidos, datos)
+        }
+    }
+
+    companion object {
+        /**
+         * Elige al azar un dato curioso entre los alimentos elegidos.
+         * Ignora los alimentos sin dato. Devuelve null si no hay ninguno disponible.
+         */
+        fun elegirDatoCurioso(
+            alimentos: List<Alimento>,
+            datos: Map<String, DatoCurioso>,
+            random: Random = Random.Default
+        ): DatoCurioso? {
+            return alimentos.mapNotNull { datos[it.opcion] }.randomOrNull(random)
+        }
     }
 }
