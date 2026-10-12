@@ -1,4 +1,4 @@
-package com.example.codigoverde
+package com.example.codigoverde.util
 
 import android.content.Context
 import android.content.res.ColorStateList
@@ -6,21 +6,23 @@ import android.graphics.Color
 import android.view.View
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import com.example.codigoverde.R
 import com.google.android.material.button.MaterialButton
 
 object ThemeUtils {
-    const val THEME_DEFAULT = "default"
+
+    const val THEME_DEFAULT = "normal"
     const val THEME_PROTANOPIA = "protanopia"
     const val THEME_TRITANOPIA = "tritanopia"
 
     fun getSelectedTheme(context: Context): String {
-        val prefs = context.getSharedPreferences("settings", Context.MODE_PRIVATE)
-        return prefs.getString("theme_mode", THEME_DEFAULT) ?: THEME_DEFAULT
+        val prefs = context.getSharedPreferences("CodigoVerdePrefs", AppCompatActivity.MODE_PRIVATE)
+        return prefs.getString("selected_theme", THEME_DEFAULT) ?: THEME_DEFAULT
     }
 
     fun setSelectedTheme(context: Context, themeMode: String) {
-        val prefs = context.getSharedPreferences("settings", Context.MODE_PRIVATE)
-        prefs.edit().putString("theme_mode", themeMode).apply()
+        val prefs = context.getSharedPreferences("CodigoVerdePrefs", AppCompatActivity.MODE_PRIVATE)
+        prefs.edit().putString("selected_theme", themeMode).apply()
     }
 
     fun applyTheme(activity: AppCompatActivity): String {

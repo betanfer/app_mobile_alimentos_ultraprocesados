@@ -1,6 +1,8 @@
-package com.example.codigoverde
+package com.example.codigoverde.util
 
 import android.content.Context
+import com.example.codigoverde.R
+import com.example.codigoverde.model.Alimento
 
 /**
  * Resuelve la imagen en res/drawable y el texto a mostrar para un alimento.

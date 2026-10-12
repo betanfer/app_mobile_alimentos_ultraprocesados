@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="#122522"
     android:padding="24dp"
-    tools:context=".Paso1AvatarActivity">
+    tools:context=".ui.Paso1AvatarActivity">
 
     <!-- Título principal -->
     <TextView

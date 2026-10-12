@@ -1,7 +1,8 @@
-package com.example.codigoverde
+package com.example.codigoverde.data
 
 import android.content.Context
 import android.content.SharedPreferences
+import com.example.codigoverde.model.Avatar
 
 object UserPreferences {
     private const val PREF_NAME = "CodigoVerdeUserPrefs"

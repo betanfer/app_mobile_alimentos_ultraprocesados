@@ -1,4 +1,4 @@
-package com.example.codigoverde
+package com.example.codigoverde.ui
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,13 +7,23 @@ import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.codigoverde.R
+import com.example.codigoverde.util.SoundManager
+import com.example.codigoverde.util.ThemeUtils
+import com.example.codigoverde.viewmodel.AvatarViewModel
 
+/**
+ * Pantalla de Detalles de Usuario / Perfil (View en MVVM):
+ * Observa AvatarViewModel para mostrar la información del usuario y actualizarse en cambios.
+ */
 class DetallesUsuario : AppCompatActivity() {
 
     private var currentTheme: String = ThemeUtils.THEME_DEFAULT
+    private val viewModel: AvatarViewModel by viewModels()
 
     private lateinit var tvNombre: TextView
     private lateinit var tvInfo: TextView
@@ -56,17 +66,15 @@ class DetallesUsuario : AppCompatActivity() {
             startActivity(intent)
         }
 
-        cargarDatosUsuario()
-    }
-
-    private fun cargarDatosUsuario() {
-        val avatar = UserPreferences.obtenerAvatar(this)
-        if (avatar != null) {
-            tvNombre.text = avatar.nombre
-            tvInfo.text = "${avatar.edad} años • ${avatar.sexo}"
-        } else {
-            tvNombre.text = "Sin usuario registrado"
-            tvInfo.text = "-- años • --"
+        // Observa los datos del avatar desde el ViewModel
+        viewModel.avatarActual.observe(this) { avatar ->
+            if (avatar != null) {
+                tvNombre.text = avatar.nombre
+                tvInfo.text = "${avatar.edad} años • ${avatar.sexo}"
+            } else {
+                tvNombre.text = "Sin usuario registrado"
+                tvInfo.text = "-- años • --"
+            }
         }
     }
 
@@ -75,8 +83,8 @@ class DetallesUsuario : AppCompatActivity() {
         ThemeUtils.updateActivityColors(this)
         if (currentTheme != ThemeUtils.getSelectedTheme(this)) {
             recreate()
+            return
         }
-        // Recarga los datos por si fueron modificados en Paso1AvatarActivity
-        cargarDatosUsuario()
+        viewModel.cargarAvatar()
     }
 }
