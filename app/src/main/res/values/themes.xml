@@ -5,7 +5,7 @@
     <!--  TEMA PRINCIPAL (Visión Normal)                -->
     <!-- ============================================= -->
 
-    <style name="Theme.CodigoVerde" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Base.Theme.CodigoVerde" parent="Theme.MaterialComponents.DayNight.NoActionBar">
 
         <!-- Colores primarios del Material Theme -->
         <item name="colorPrimary">@color/color_success</item>
@@ -38,6 +38,8 @@
         <!-- Estilo de botón por defecto -->
         <item name="materialButtonStyle">@style/Widget.CodigoVerde.Button.Primary</item>
     </style>
+
+    <style name="Theme.CodigoVerde" parent="Base.Theme.CodigoVerde" />
 
 
     <!-- ============================================= -->

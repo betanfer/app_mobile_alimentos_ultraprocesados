@@ -62,4 +62,11 @@ class MainActivity : AppCompatActivity() {
             recreate()
         }
     }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        if (isFinishing) {
+            SoundManager.release()
+        }
+    }
 }

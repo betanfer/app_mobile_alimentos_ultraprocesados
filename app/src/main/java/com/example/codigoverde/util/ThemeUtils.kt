@@ -63,7 +63,8 @@ object ThemeUtils {
             R.id.btnStartGame,
             R.id.btnStartGame2,
             R.id.btnContinuar,
-            R.id.btnEditarDatos
+            R.id.btnEditarDatos,
+            R.id.btnVolverAJugar
         )
 
         for (id in buttonIds) {

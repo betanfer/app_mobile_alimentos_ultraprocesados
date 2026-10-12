@@ -91,7 +91,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/open_dyslexic"
-        android:text="¡Atrapa la comida saludable!"
+        android:text="¡Elegí la comida saludable y ganá puntos!"
         android:textColor="@color/color_text_primary"
         android:textSize="@dimen/text_size_button"
         android:textStyle="bold"
