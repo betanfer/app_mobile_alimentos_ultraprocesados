@@ -25,11 +25,14 @@ class Paso1AvatarActivity : AppCompatActivity() {
 
         val esModoEdicion = intent.getBooleanExtra("MODO_EDICION", false)
 
+        val etEdad = findViewById<EditText>(R.id.etEdad)
+
         // Precarga de datos
         val avatarGuardado = UserPreferences.obtenerAvatar(this)
         if (avatarGuardado != null) {
             etNombre.setText(avatarGuardado.nombre)
-            if (avatarGuardado.sexo.equals("Femenino", ignoreCase = true) || avatarGuardado.sexo.equals("Mujer", ignoreCase = true)) {
+            if (avatarGuardado.edad > 0) etEdad.setText(avatarGuardado.edad.toString())
+            if (avatarGuardado.sexo == Avatar.SEXO_FEMENINO) {
                 rgSexo.check(R.id.rbMujer)
             } else {
                 rgSexo.check(R.id.rbHombre)
@@ -44,15 +47,15 @@ class Paso1AvatarActivity : AppCompatActivity() {
             SoundManager.playBubbly(this)
             val nombre = etNombre.text.toString().trim()
             val sexoId = rgSexo.checkedRadioButtonId
+            val edad = etEdad.text.toString().trim().toIntOrNull()
 
-            if (nombre.isEmpty() || sexoId == -1) {
-                Toast.makeText(this, "Por favor, ingresá tu nombre", Toast.LENGTH_SHORT).show()
+            if (nombre.isEmpty() || sexoId == -1 || edad == null || edad !in 1..120) {
+                Toast.makeText(this, R.string.error_datos_avatar, Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
-            val sexo = if (sexoId == R.id.rbHombre) "Hombre" else "Mujer"
-            val edadActual = avatarGuardado?.edad ?: 0
-            val avatar = Avatar(nombre, sexo, edadActual)
+            val sexo = if (sexoId == R.id.rbHombre) Avatar.SEXO_MASCULINO else Avatar.SEXO_FEMENINO
+            val avatar = Avatar(nombre, sexo, edad)
 
             // Guardar permanentemente
             UserPreferences.guardarAvatar(this, avatar)

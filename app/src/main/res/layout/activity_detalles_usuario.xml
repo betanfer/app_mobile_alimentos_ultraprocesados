@@ -2,6 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg_dark"
@@ -21,13 +22,14 @@
 
             <ImageButton
                 android:id="@+id/btnBack"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:layout_alignParentStart="true"
-                android:background="@drawable/shape_circle_button"
-                android:contentDescription="Volver"
-                android:src="@android:drawable/ic_menu_revert"
-                app:tint="@color/text_white" />
+                android:background="@drawable/bg_circle_button"
+                android:contentDescription="@string/btn_back_description"
+                android:padding="12dp"
+                android:src="@drawable/ic_arrow_back"
+                app:tint="#FFFFFF" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -40,13 +42,14 @@
 
             <ImageButton
                 android:id="@+id/btnSettings"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
                 android:layout_alignParentEnd="true"
-                android:background="@drawable/shape_circle_button"
-                android:contentDescription="Ajustes"
-                android:src="@android:drawable/ic_menu_preferences"
-                app:tint="@color/text_white" />
+                android:background="@drawable/bg_circle_button"
+                android:contentDescription="@string/btn_settings_description"
+                android:padding="12dp"
+                android:src="@drawable/ic_settings"
+                app:tint="#FFFFFF" />
         </RelativeLayout>
 
         <!-- Perfil: Foto y Nombre -->
@@ -450,6 +453,17 @@
                     android:textSize="13sp" />
             </LinearLayout>
         </LinearLayout>
+
+        <!-- Botón Editar datos -->
+        <Button
+            android:id="@+id/btnEditarDatos"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_button_green"
+            android:text="@string/btn_editar_datos"
+            android:textColor="@color/color_button_primary_text"
+            android:textStyle="bold" />
 
     </LinearLayout>
 </ScrollView>
