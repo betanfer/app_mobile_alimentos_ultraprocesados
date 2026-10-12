@@ -8,25 +8,41 @@ import com.example.codigoverde.data.DatoCuriosoRepository
 import com.example.codigoverde.model.Alimento
 import com.example.codigoverde.model.Avatar
 import com.example.codigoverde.model.DatoCurioso
+import com.example.codigoverde.model.ReglasJuego
 import com.example.codigoverde.model.ResultadoPartida
 import com.example.codigoverde.util.Event
 import kotlin.random.Random
 
 /**
+ * Estado de la pantalla de resultados, listo para que la vista lo dibuje.
+ * Los puntajes por categoría ya vienen acotados a 0..[ReglasJuego.MAX_PUNTOS_POR_CATEGORIA]
+ * (los alimentos no saludables pueden restar, pero la vista solo muestra círculos llenos).
+ */
+data class PuntajeUi(
+    val salud: Int,
+    val saciedad: Int,
+    val vitalidad: Int,
+    val total: Int,
+    val maximo: Int,
+    val porcentaje: Double,
+    val esVictoria: Boolean
+)
+
+/**
  * ViewModel para la pantalla de Resultados.
  * Encapsula la evaluación de los resultados de la partida:
- * - Puntaje final, porcentaje, estado de victoria/derrota.
- * - Formato del texto del resumen del jugador.
+ * - Puntaje por categoría, total, porcentaje y estado de victoria/derrota.
  * - Evento de sonido según el resultado.
  * - Dato curioso aleatorio de uno de los alimentos elegidos.
+ * - Avatar "limpio" para volver a jugar.
  */
 class ResultadoViewModel(application: Application) : AndroidViewModel(application) {
 
     private val _resultado = MutableLiveData<ResultadoPartida>()
     val resultado: LiveData<ResultadoPartida> = _resultado
 
-    private val _textoResumen = MutableLiveData<String>()
-    val textoResumen: LiveData<String> = _textoResumen
+    private val _puntaje = MutableLiveData<PuntajeUi>()
+    val puntaje: LiveData<PuntajeUi> = _puntaje
 
     private val _eventoSonido = MutableLiveData<Event<Boolean>>() // true = positivo, false = negativo
     val eventoSonido: LiveData<Event<Boolean>> = _eventoSonido
@@ -38,7 +54,13 @@ class ResultadoViewModel(application: Application) : AndroidViewModel(applicatio
     // El sorteo se hace una sola vez: el ViewModel sobrevive a la rotación y el dato no cambia
     private var datoYaSorteado = false
 
+    // La animación de llenado de círculos se muestra una sola vez (no se repite al rotar)
+    private var animacionMostrada = false
+
     fun cargarResultado(resultadoPartida: ResultadoPartida?, avatarFallback: Avatar?) {
+        // Evita recalcular (y volver a disparar el sonido) si la vista se recrea
+        if (_resultado.value != null) return
+
         val res = resultadoPartida ?: run {
             val av = avatarFallback ?: Avatar("", "", 0)
             val total = av.salud + av.saciedad + av.vitalidad
@@ -53,33 +75,16 @@ class ResultadoViewModel(application: Application) : AndroidViewModel(applicatio
 
         _resultado.value = res
 
-        val mensajeFinal = if (res.esVictoria) {
-            "¡PARTIDA GANADA! 🎉\nExcelente combinación de alimentos saludables."
-        } else {
-            "¡PARTIDA PERDIDA! ⚠️\nCuidado con los ultraprocesados y calorías vacías."
-        }
-
-        _textoResumen.value = """
-            ===========================
-               TARJETA DEL JUGADOR
-            ===========================
-            Nombre: ${res.avatar.nombre}
-            Sexo: ${res.avatar.sexo}
-            Edad: ${res.avatar.edad} años
-            
-            ---------------------------
-            PUNTAJE FINAL OBTENIDO:
-            ---------------------------
-            Salud: ${res.avatar.salud} pts
-            Saciedad: ${res.avatar.saciedad} pts
-            Vitalidad: ${res.avatar.vitalidad} pts
-            Total: ${res.puntajeTotal} / ${res.maximoPosible} pts (${String.format("%.1f", res.porcentajeObtenido)}%)
-            
-            ---------------------------
-            EVALUACIÓN:
-            ---------------------------
-            $mensajeFinal
-        """.trimIndent()
+        val maxCategoria = ReglasJuego.MAX_PUNTOS_POR_CATEGORIA
+        _puntaje.value = PuntajeUi(
+            salud = res.saludGanada.coerceIn(0, maxCategoria),
+            saciedad = res.saciedadGanada.coerceIn(0, maxCategoria),
+            vitalidad = res.vitalidadGanada.coerceIn(0, maxCategoria),
+            total = res.puntajeTotal.coerceAtLeast(0),
+            maximo = res.maximoPosible,
+            porcentaje = res.porcentajeObtenido.coerceAtLeast(0.0),
+            esVictoria = res.esVictoria
+        )
 
         _eventoSonido.value = Event(res.esVictoria)
 
@@ -88,6 +93,22 @@ class ResultadoViewModel(application: Application) : AndroidViewModel(applicatio
             val datos = DatoCuriosoRepository.cargarDatos(getApplication())
             _datoCurioso.value = elegirDatoCurioso(res.alimentosElegidos, datos)
         }
+    }
+
+    /** true solo la primera vez: indica si la vista debe animar el llenado de círculos. */
+    fun consumirAnimacion(): Boolean {
+        if (animacionMostrada) return false
+        animacionMostrada = true
+        return true
+    }
+
+    /**
+     * Avatar con los datos del jugador y los puntajes en cero, para empezar una partida nueva.
+     * (El avatar de la partida terminada trae los puntajes acumulados.)
+     */
+    fun avatarParaNuevaPartida(): Avatar? {
+        val av = _resultado.value?.avatar ?: return null
+        return av.copy(salud = 0, saciedad = 0, vitalidad = 0)
     }
 
     companion object {
