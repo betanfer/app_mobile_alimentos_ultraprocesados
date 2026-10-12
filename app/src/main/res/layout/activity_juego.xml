@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="@dimen/screen_margin_horizontal"
-        tools:context=".JuegoActivity">
+        tools:context=".ui.JuegoActivity">
 
         <!-- Botón Cerrar (X) -->
         <ImageButton

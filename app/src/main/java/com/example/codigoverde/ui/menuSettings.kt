@@ -1,4 +1,4 @@
-package com.example.codigoverde
+package com.example.codigoverde.ui
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,6 +8,9 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.codigoverde.R
+import com.example.codigoverde.util.SoundManager
+import com.example.codigoverde.util.ThemeUtils
 import com.google.android.material.switchmaterial.SwitchMaterial
 
 class menuSettings : AppCompatActivity() {

@@ -1,4 +1,4 @@
-package com.example.codigoverde
+package com.example.codigoverde.model
 
 import java.io.Serializable
 
