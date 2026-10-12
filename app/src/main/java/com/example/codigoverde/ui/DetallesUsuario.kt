@@ -1,4 +1,4 @@
-package com.example.codigoverde
+package com.example.codigoverde.ui
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,17 +7,26 @@ import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.codigoverde.R
+import com.example.codigoverde.util.SoundManager
+import com.example.codigoverde.util.ThemeUtils
+import com.example.codigoverde.viewmodel.AvatarViewModel
 
+/**
+ * Pantalla de Detalles de Usuario / Perfil (View en MVVM):
+ * Observa AvatarViewModel para mostrar la información del usuario y actualizarse en cambios.
+ */
 class DetallesUsuario : AppCompatActivity() {
 
     private var currentTheme: String = ThemeUtils.THEME_DEFAULT
+    private val viewModel: AvatarViewModel by viewModels()
 
     private lateinit var tvNombre: TextView
-    private lateinit var tvEdad: TextView
-    private lateinit var tvSexo: TextView
+    private lateinit var tvInfo: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         currentTheme = ThemeUtils.applyTheme(this)
@@ -27,40 +36,29 @@ class DetallesUsuario : AppCompatActivity() {
         ThemeUtils.updateActivityColors(this)
 
         val mainView = findViewById<View>(R.id.main)
-        val baseMargin = resources.getDimensionPixelSize(R.dimen.screen_margin_horizontal)
-
         ViewCompat.setOnApplyWindowInsetsListener(mainView) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(
-                systemBars.left + baseMargin,
-                systemBars.top + baseMargin,
-                systemBars.right + baseMargin,
-                systemBars.bottom + baseMargin
-            )
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
-        tvNombre = findViewById(R.id.textView)
-        tvEdad = findViewById(R.id.textView2)
-        tvSexo = findViewById(R.id.textView3)
+        tvNombre = findViewById(R.id.tvUserName)
+        tvInfo = findViewById(R.id.tvUserInfo)
 
         // Botón Volver (<)
-        val btnBack = findViewById<ImageButton>(R.id.btnBack4)
-        btnBack?.setOnClickListener {
+        findViewById<ImageButton>(R.id.btnBack)?.setOnClickListener {
             SoundManager.playBubbly(this)
             finish()
         }
 
         // Botón Configuración
-        val btnSettings = findViewById<View>(R.id.btnSettings)
-        btnSettings?.setOnClickListener {
+        findViewById<View>(R.id.btnSettings)?.setOnClickListener {
             SoundManager.playBubbly(this)
             startActivity(Intent(this, menuSettings::class.java))
         }
 
         // Botón Editar datos -> Abre Paso1AvatarActivity con los datos precargados para editar
-        val btnEditar = findViewById<Button>(R.id.button)
-        btnEditar?.setOnClickListener {
+        findViewById<Button>(R.id.btnEditarDatos)?.setOnClickListener {
             SoundManager.playBubbly(this)
             val intent = Intent(this, Paso1AvatarActivity::class.java).apply {
                 putExtra("MODO_EDICION", true)
@@ -68,19 +66,15 @@ class DetallesUsuario : AppCompatActivity() {
             startActivity(intent)
         }
 
-        cargarDatosUsuario()
-    }
-
-    private fun cargarDatosUsuario() {
-        val avatar = UserPreferences.obtenerAvatar(this)
-        if (avatar != null) {
-            tvNombre.text = avatar.nombre
-            tvEdad.text = "Edad: ${avatar.edad} años"
-            tvSexo.text = "Sexo: ${avatar.sexo}"
-        } else {
-            tvNombre.text = "Sin usuario registrado"
-            tvEdad.text = "Edad: --"
-            tvSexo.text = "Sexo: --"
+        // Observa los datos del avatar desde el ViewModel
+        viewModel.avatarActual.observe(this) { avatar ->
+            if (avatar != null) {
+                tvNombre.text = avatar.nombre
+                tvInfo.text = "${avatar.edad} años • ${avatar.sexo}"
+            } else {
+                tvNombre.text = "Sin usuario registrado"
+                tvInfo.text = "-- años • --"
+            }
         }
     }
 
@@ -89,8 +83,8 @@ class DetallesUsuario : AppCompatActivity() {
         ThemeUtils.updateActivityColors(this)
         if (currentTheme != ThemeUtils.getSelectedTheme(this)) {
             recreate()
+            return
         }
-        // Recarga los datos por si fueron modificados en Paso1AvatarActivity
-        cargarDatosUsuario()
+        viewModel.cargarAvatar()
     }
 }

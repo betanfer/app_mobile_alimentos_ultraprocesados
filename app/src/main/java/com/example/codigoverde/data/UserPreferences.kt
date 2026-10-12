@@ -1,7 +1,8 @@
-package com.example.codigoverde
+package com.example.codigoverde.data
 
 import android.content.Context
 import android.content.SharedPreferences
+import com.example.codigoverde.model.Avatar
 
 object UserPreferences {
     private const val PREF_NAME = "CodigoVerdeUserPrefs"
@@ -37,7 +38,12 @@ object UserPreferences {
 
         val nombre = prefs.getString(KEY_NOMBRE, "") ?: ""
         val edad = prefs.getInt(KEY_EDAD, 0)
-        val sexo = prefs.getString(KEY_SEXO, "Masculino") ?: "Masculino"
+        // Normaliza valores guardados con versiones anteriores ("Hombre"/"Mujer")
+        val sexoGuardado = prefs.getString(KEY_SEXO, Avatar.SEXO_MASCULINO) ?: Avatar.SEXO_MASCULINO
+        val sexo = when (sexoGuardado.lowercase()) {
+            "mujer", "femenino" -> Avatar.SEXO_FEMENINO
+            else -> Avatar.SEXO_MASCULINO
+        }
 
         return Avatar(
             nombre = nombre,

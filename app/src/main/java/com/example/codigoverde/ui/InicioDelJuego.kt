@@ -1,26 +1,35 @@
-package com.example.codigoverde
+package com.example.codigoverde.ui
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
+import android.widget.ImageButton
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.codigoverde.R
+import com.example.codigoverde.util.SoundManager
+import com.example.codigoverde.util.ThemeUtils
+import com.example.codigoverde.viewmodel.AvatarViewModel
 
-class MainActivity : AppCompatActivity() {
+/**
+ * Pantalla de Inicio del Juego:
+ * Observa AvatarViewModel para determinar si se debe avanzar a Selección de Menú o Crear Avatar.
+ */
+class InicioDelJuego : AppCompatActivity() {
 
     private var currentTheme: String = ThemeUtils.THEME_DEFAULT
+    private val viewModel: AvatarViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         currentTheme = ThemeUtils.applyTheme(this)
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_iniciodeljuego)
         ThemeUtils.updateActivityColors(this)
-
-        // Precarga los sonidos al abrir la app (SoundPool carga de forma asíncrona)
-        SoundManager.init(applicationContext)
 
         val mainView = findViewById<View>(R.id.main)
         val baseMargin = resources.getDimensionPixelSize(R.dimen.screen_margin_horizontal)
@@ -36,15 +45,30 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        val btnInicio = findViewById<View>(R.id.btnBadge)
-
-        btnInicio.setOnClickListener {
+        // 1. Botón Volver (<)
+        val btnBack = findViewById<ImageButton>(R.id.btnBack)
+        btnBack.setOnClickListener {
             SoundManager.playBubbly(this)
-            // Abre directamente la pantalla del juego
-            val intent = Intent(this, InicioDelJuego::class.java)
-            startActivity(intent)
+            finish()
         }
 
+        // 2. Botón ¡JUGAR!
+        val btnStartGame = findViewById<Button>(R.id.btnStartGame)
+        btnStartGame.setOnClickListener {
+            SoundManager.playStartGame(this)
+            val avatarGuardado = viewModel.avatarActual.value
+            if (avatarGuardado != null) {
+                val intent = Intent(this, SeleccionarMenuActivity::class.java).apply {
+                    putExtra("EXTRA_AVATAR", avatarGuardado)
+                }
+                startActivity(intent)
+            } else {
+                val intent = Intent(this, Paso1AvatarActivity::class.java)
+                startActivity(intent)
+            }
+        }
+
+        // 3. Botón Configuración
         val btnSettings = findViewById<View>(R.id.btnSettings)
         btnSettings?.setOnClickListener {
             SoundManager.playBubbly(this)
@@ -57,6 +81,8 @@ class MainActivity : AppCompatActivity() {
         ThemeUtils.updateActivityColors(this)
         if (currentTheme != ThemeUtils.getSelectedTheme(this)) {
             recreate()
+            return
         }
+        viewModel.cargarAvatar()
     }
 }

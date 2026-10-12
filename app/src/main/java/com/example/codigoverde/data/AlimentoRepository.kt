@@ -1,6 +1,7 @@
-package com.example.codigoverde
+package com.example.codigoverde.data
 
 import android.content.Context
+import com.example.codigoverde.model.Alimento
 
 object AlimentoRepository {
     fun cargarAlimentos(context: Context): List<Alimento> {
