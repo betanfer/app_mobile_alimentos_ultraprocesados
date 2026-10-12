@@ -183,7 +183,8 @@ class JuegoViewModel(application: Application) : AndroidViewModel(application) {
             saludGanada = saludGanada,
             saciedadGanada = saciedadGanada,
             vitalidadGanada = vitalidadGanada,
-            puntajeTotal = total
+            puntajeTotal = total,
+            alimentosElegidos = _bandeja.value.orEmpty()
         )
 
         _eventoUi.value = Event(UiEvent.FinalizarPartida(resultado))

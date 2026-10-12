@@ -35,6 +35,19 @@ class Paso1AvatarActivity : AppCompatActivity() {
         val btnContinuar = findViewById<Button>(R.id.btnContinuar)
         val etEdad = findViewById<EditText>(R.id.etEdad)
 
+        val rbHombre = findViewById<android.widget.RadioButton>(R.id.rbHombre)
+        val rbMujer = findViewById<android.widget.RadioButton>(R.id.rbMujer)
+
+        fun actualizarEstilosGenero(idSeleccionado: Int) {
+            rbHombre.setBackgroundResource(if (idSeleccionado == R.id.rbHombre) R.drawable.bg_card_selected else R.drawable.bg_card_unselected)
+            rbMujer.setBackgroundResource(if (idSeleccionado == R.id.rbMujer) R.drawable.bg_card_selected else R.drawable.bg_card_unselected)
+        }
+
+        rgSexo.setOnCheckedChangeListener { _, checkedId ->
+            actualizarEstilosGenero(checkedId)
+        }
+        actualizarEstilosGenero(rgSexo.checkedRadioButtonId)
+
         val esModoEdicion = intent.getBooleanExtra("MODO_EDICION", false)
         if (esModoEdicion) {
             btnContinuar.text = "Guardar Cambios"

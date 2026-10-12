@@ -1,4 +1,14 @@
 <resources>
+    <string name="titulo_dato_curioso">¿SABÍAS QUE…?</string>
+    <string name="titulo_resultado_ganada">¡PARTIDA GANADA! 🎉</string>
+    <string name="subtitulo_resultado_ganada">Excelente combinación de alimentos saludables.</string>
+    <string name="titulo_resultado_perdida">¡PARTIDA PERDIDA! ⚠️</string>
+    <string name="subtitulo_resultado_perdida">Cuidado con los ultraprocesados y calorías vacías.</string>
+    <string name="label_salud">Salud</string>
+    <string name="label_saciedad">Saciedad</string>
+    <string name="label_vitalidad">Vitalidad</string>
+    <string name="btn_volver_a_jugar">Volver a jugar</string>
+    <string name="desc_imagen_resultado">Resultado de la partida</string>
     <string name="app_name">CodigoVerde</string>
     <string name="img_plate_description">Plato de comida</string>
 
