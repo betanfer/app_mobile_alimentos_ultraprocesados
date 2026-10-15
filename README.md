@@ -302,6 +302,6 @@ Se implementó un manejo riguroso del ciclo de vida de Android para garantizar e
 | :--- | :--- | :--- |
 | **Betancor Fernando** | Programador | Configuración base en Android Studio con Kotlin: AndroidManifest (permisos y flujo), modelo de datos y repositorio (Alimento), entidad Avatar y lógica de Activities (juego, avatar, horarios y resultados), Modelo de Alimentos en 4 comidas diarias. |
 | **Rey Lucas** | Mentor y programador | Relato y desarrollo del juego. Mecanismo de juego, incluyendo el temporizador de cuenta atrás. |
-| **Rodríguez Stephany** | *[Por completar]* | *[Por completar]* |
+| **Rodríguez Stephany** | Diseño | Diseño e identidad visual (Selección de tipografía, paleta de colores y prototipo de interfaz) |
 | **Scodelari Julia** | Programación y documentación | Armado del readme.md, implementación del patrón MVVM, generación de assets (imágenes, sonidos, animaciones) |
 
