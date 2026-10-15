@@ -64,6 +64,19 @@ o	Nivel Saludable: +2 (Saludable) / -1 (No saludable).
 o	Saciedad: Escala de -1 a 2.
  
 o	Vitalidad: +2 o +1 (Aporte sostenido) / -1 (Baja vitalidad o pesadez).
+
+
+Julia Scodelari
+Por mi parte, me encargue, en principio de diseñar la paleta de colores que utilizamos en la aplicación, ensaye diferentes opciones hasta dar con una que fuera colorida, poseyera buenos contrastes entre colores y cuyas paletas alternativas fueran también coloridas y atractivas. 
+Luego, mis principales contribuciones en el desarrollo de la aplicación incluyeron:
+o	La creación de estilos reutilizables para poder aplicar fácilmente la paleta de colores elegida y los estilos de los botones en todas las pantallas del proyecto, en los archivos themes.xml, colors.xml y styles.xml. 
+o	La implementación del patrón MVVM fue mi contribución más grande al proyecto, donde tome las pantallas y la lógica creada por mis compañeros de equipo y refactorice el proyecto para desacoplar de forma limpia la interfaz de usuario de la lógica de negocio y el acceso a datos. Además, en este paso del desarrollo aproveché para adaptar los ViewModels para retener y gestionar el estado de las vistas ante cambios de configuración de la pantalla, con lo que se evita la sobrecarga en las actividades y se garantiza un flujo de datos unidireccional y robusto.
+o	Implementé la vista activity_menu_settings. xml y su respectiva clase kotlin menuSettings, lo que permite seleccionar las diferentes paletas de colores disponibles y activar y desactivar los sonidos los efectos de sonido. 
+o	Me encargué de la creación e integración de los recursos multimedia, con ayuda de la IA integrada de Android Studio, generé las imágenes, animaciones y sonidos utilizados y luego los integré dentro de las pantallas del juego, utilizando (para los sonidos) la clase SoundManager.kt que hace uso de android.media. 
+o	Agregué luego la lógica para que los datos del avatar ingresados por el usuario persistieran en SharedPreferences y se pudieran luego recuperar aunque se cierre la app. 
+o	Por último integré a la pantalla de resultado final del juego la visualización de un dato curioso elegido al azar de una lista en formato JSON de datos basados en los alimentos seleccionables que ofrecemos en nuestro juego. La clase DatoCuriosoRepository.kt recupera la lista completa del archivo datos_curiosos.json y luego selecciona uno al azar de alguno de los alimentos que el usuario seleccionó en su partida. El dato curioso se muestra cuando se pierde la partida y la idea es mostrarle al usuario alternativas a los alimentos manos sanos que eligió o sugerencias de como cocinarlos de forma más saludable. 
+
+
  
 
 
