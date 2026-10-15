@@ -76,7 +76,7 @@ Para que el temporizador no se reinicie ante un giro de pantalla, se debió impl
 
 
 Stephany Rodriguez
-Yo me encargue encargue de crear el nombre de la aplicación y el diseño del logo de la misma, también pasar al figma las ideas de mis compañeros para poder tener la guía de como queríamos que se plasmara en el Android Studio las pantallas.
+Yo me encargue de crear el nombre de la aplicación y el diseño del logo de la misma, también pasar al figma las ideas de mis compañeros para poder tener la guía de como queríamos que se plasmara en el Android Studio las pantallas.
 Luego de eso, pase al Android Studio y cree las primeras tres pantallas que seria: 
 • Pantalla de inicio de la aplicación, que es al abrir la misma 
 • Pantalla de inicio del juego
