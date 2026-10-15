@@ -301,7 +301,7 @@ Se implementó un manejo riguroso del ciclo de vida de Android para garantizar e
 | Integrante | Rol en el equipo | Tareas realizadas |
 | :--- | :--- | :--- |
 | **Betancor Fernando** | *[Por completar]* | *[Por completar]* |
-| **Rey Lucas** | *[Por completar]* | *[Por completar]* |
+| **Rey Lucas** | Mentor y programador | Relato y desarrollo del juego. Mecanismo de juego, incluyendo el temporizador de cuenta atrás. |
 | **Rodríguez Stephany** | *[Por completar]* | *[Por completar]* |
 | **Scodelari Julia** | *[Por completar]* | *[Por completar]* |
 
