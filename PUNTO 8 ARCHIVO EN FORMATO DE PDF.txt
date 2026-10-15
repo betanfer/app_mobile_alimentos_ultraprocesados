@@ -66,6 +66,15 @@ o	Saciedad: Escala de -1 a 2.
 o	Vitalidad: +2 o +1 (Aporte sostenido) / -1 (Baja vitalidad o pesadez).
 
 
+Lucas Rey
+Me encargué de crear el relato del juego, es decir, los pasos que realiza el jugador para cumplir el objetivo del juego, y la navegación entre pantallas:
+o En la primera pantalla se le da a elegir al jugador la comida (desayuno, almuerzo, merienda o cena) según la hora del día o a voluntad.
+o En la pantalla de juego, elegirá tres comidas en un lapso de 30 segundos.
+o En la pantalla siguiente aparecerá la puntuación según lo que eligió.
+También me encargué del temporizador de cuenta atrás, el cual se programó el funcionamiento según los estados de la pantalla controlada por el archivo JuegoActivity.kt, que controla la pantalla de juego
+Para que el temporizador no se reinicie ante un giro de pantalla, se debió implementarlo en el ViewModel de la pantalla de juego, que es el archivo JuegoViewModel.
+
+
 Julia Scodelari
 Por mi parte, me encargue, en principio de diseñar la paleta de colores que utilizamos en la aplicación, ensaye diferentes opciones hasta dar con una que fuera colorida, poseyera buenos contrastes entre colores y cuyas paletas alternativas fueran también coloridas y atractivas. 
 Luego, mis principales contribuciones en el desarrollo de la aplicación incluyeron:
