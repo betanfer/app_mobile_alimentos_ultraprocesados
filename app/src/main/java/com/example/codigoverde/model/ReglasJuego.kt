@@ -5,7 +5,7 @@ package com.example.codigoverde.model
  */
 object ReglasJuego {
     const val MAX_ALIMENTOS = 3
-    const val TIEMPO_TOTAL_MS = 30000L
+    const val TIEMPO_TOTAL_MS = 20000L
     const val INTERVALO_TIMER_MS = 1000L
 
     // Cada alimento otorga como máximo 2 salud + 2 saciedad + 2 vitalidad = 6 puntos.

@@ -66,7 +66,7 @@
             android:fontFamily="@font/open_dyslexic"
             android:paddingHorizontal="12dp"
             android:paddingVertical="6dp"
-            android:text="⏱ 30s"
+            android:text="⏱ 20s"
             android:textColor="@color/color_warning"
             android:textSize="14sp"
             android:textStyle="bold"
