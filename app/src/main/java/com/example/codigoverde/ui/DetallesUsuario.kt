@@ -1,0 +1,90 @@
+package com.example.codigoverde.ui
+
+import android.content.Intent
+import android.os.Bundle
+import android.view.View
+import android.widget.Button
+import android.widget.ImageButton
+import android.widget.TextView
+import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import com.example.codigoverde.R
+import com.example.codigoverde.util.SoundManager
+import com.example.codigoverde.util.ThemeUtils
+import com.example.codigoverde.viewmodel.AvatarViewModel
+
+/**
+ * Pantalla de Detalles de Usuario / Perfil (View en MVVM):
+ * Observa AvatarViewModel para mostrar la información del usuario y actualizarse en cambios.
+ */
+class DetallesUsuario : AppCompatActivity() {
+
+    private var currentTheme: String = ThemeUtils.THEME_DEFAULT
+    private val viewModel: AvatarViewModel by viewModels()
+
+    private lateinit var tvNombre: TextView
+    private lateinit var tvInfo: TextView
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        currentTheme = ThemeUtils.applyTheme(this)
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        setContentView(R.layout.activity_detalles_usuario)
+        ThemeUtils.updateActivityColors(this)
+
+        val mainView = findViewById<View>(R.id.main)
+        ViewCompat.setOnApplyWindowInsetsListener(mainView) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
+
+        tvNombre = findViewById(R.id.tvUserName)
+        tvInfo = findViewById(R.id.tvUserInfo)
+
+        // Botón Volver (<)
+        findViewById<ImageButton>(R.id.btnBack)?.setOnClickListener {
+            SoundManager.playBubbly(this)
+            finish()
+        }
+
+        // Botón Configuración
+        findViewById<View>(R.id.btnSettings)?.setOnClickListener {
+            SoundManager.playBubbly(this)
+            startActivity(Intent(this, menuSettings::class.java))
+        }
+
+        // Botón Editar datos -> Abre Paso1AvatarActivity con los datos precargados para editar
+        findViewById<Button>(R.id.btnEditarDatos)?.setOnClickListener {
+            SoundManager.playBubbly(this)
+            val intent = Intent(this, Paso1AvatarActivity::class.java).apply {
+                putExtra("MODO_EDICION", true)
+            }
+            startActivity(intent)
+        }
+
+        // Observa los datos del avatar desde el ViewModel
+        viewModel.avatarActual.observe(this) { avatar ->
+            if (avatar != null) {
+                tvNombre.text = avatar.nombre
+                tvInfo.text = "${avatar.edad} años • ${avatar.sexo}"
+            } else {
+                tvNombre.text = "Sin usuario registrado"
+                tvInfo.text = "-- años • --"
+            }
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        ThemeUtils.updateActivityColors(this)
+        if (currentTheme != ThemeUtils.getSelectedTheme(this)) {
+            recreate()
+            return
+        }
+        viewModel.cargarAvatar()
+    }
+}

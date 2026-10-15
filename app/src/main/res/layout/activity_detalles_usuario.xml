@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_background"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/screen_margin_horizontal">
+
+        <!-- Header: Botones de volver y ajustes -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp">
+
+            <ImageButton
+                android:id="@+id/btnBack"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_alignParentStart="true"
+                android:background="@drawable/bg_circle_button"
+                android:contentDescription="@string/btn_back_description"
+                android:padding="12dp"
+                android:src="@drawable/ic_arrow_back"
+                app:tint="#FFFFFF" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/open_dyslexic"
+                android:text="MI PERFIL"
+                android:textColor="?android:attr/textColorPrimary"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <ImageButton
+                android:id="@+id/btnSettings"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_alignParentEnd="true"
+                android:background="@drawable/bg_circle_button"
+                android:contentDescription="@string/btn_settings_description"
+                android:padding="12dp"
+                android:src="@drawable/ic_settings"
+                app:tint="#FFFFFF" />
+        </RelativeLayout>
+
+        <!-- Perfil: Foto y Nombre -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <!-- Avatar -->
+                <ImageView
+                    android:id="@+id/imgProfile"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:background="@drawable/shape_circle_avatar" />
+
+                <!-- Badge verificado -->
+                <ImageView
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_alignBottom="@id/imgProfile"
+                    android:layout_alignEnd="@id/imgProfile"
+                    android:src="@android:drawable/checkbox_on_background"
+                    app:tint="?attr/colorPrimary" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tvUserName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/open_dyslexic"
+                android:text="Name"
+                android:textColor="?android:attr/textColorPrimary"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvUserInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/open_dyslexic"
+                android:text="-- años • Nivel Consciente"
+                android:textColor="?android:attr/textColorSecondary"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <!-- Barra de Experiencia (XP) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_dyslexic"
+                    android:text="Experiencia"
+                    android:textColor="?android:attr/textColorSecondary"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/tvXpValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:fontFamily="@font/open_dyslexic"
+                    android:text="--- / ---- XP"
+                    android:textColor="?attr/colorPrimary"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <ProgressBar
+                android:id="@+id/progressXp"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+                android:max="1000"
+                android:progress="680"
+                android:progressDrawable="@drawable/custom_progress_bar" />
+        </LinearLayout>
+
+        <!-- Etiquetas / Badges de Logros Rápidos -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="6dp"
+                android:background="@drawable/shape_badge"
+                android:backgroundTint="@color/badge_green_bg"
+                android:fontFamily="@font/open_dyslexic"
+                android:paddingVertical="8dp"
+                android:text="🌱 Sin azúcar"
+                android:textAlignment="center"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="11sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.2"
+                android:layout_marginEnd="6dp"
+                android:background="@drawable/shape_badge"
+                android:backgroundTint="@color/badge_blue_bg"
+                android:fontFamily="@font/open_dyslexic"
+                android:paddingVertical="8dp"
+                android:text="🔍 Lector de etiquetas"
+                android:textAlignment="center"
+                android:textColor="?android:attr/textColorPrimary"
+                android:textSize="11sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/shape_badge"
+                android:backgroundTint="@color/badge_orange_bg"
+                android:fontFamily="@font/open_dyslexic"
+                android:paddingVertical="8dp"
+                android:text="🔥 - días activo"
+                android:textAlignment="center"
+                android:textColor="?android:attr/textColorPrimary"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <!-- Tarjetas Estadísticas Principales -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal">
+
+            <!-- Card 1 -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="115dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/shape_card_border"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_dyslexic"
+                    android:text="--"
+                    android:textColor="?attr/colorPrimary"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_dyslexic"
+                    android:gravity="center"
+                    android:text="días sin ultraprocesados"
+                    android:textColor="?android:attr/textColorSecondary"
+                    android:textSize="10sp" />
+            </LinearLayout>
+
+            <!-- Card 2 -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="115dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/shape_card_border"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_dyslexic"
+                    android:text="--"
+                    android:textColor="?android:attr/textColorPrimary"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_dyslexic"
+                    android:gravity="center"
+                    android:text="productos editados"
+                    android:textColor="?android:attr/textColorSecondary"
+                    android:textSize="10sp" />
+            </LinearLayout>
+
+            <!-- Card 3 -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="115dp"
+                android:layout_weight="1"
+                android:background="@drawable/shape_card_border"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_dyslexic"
+                    android:text="-"
+                    android:textColor="?attr/colorPrimary"
+                    android:textSize="24sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_dyslexic"
+                    android:gravity="center"
+                    android:text="objetivos listos"
+                    android:textColor="?android:attr/textColorSecondary"
+                    android:textSize="10sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Pestañas (Resumen / Registro / Logros) -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/shape_card_border"
+            android:padding="4dp">
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/card_border"
+                android:fontFamily="@font/open_dyslexic"
+                android:text="Resumen"
+                android:textAllCaps="false"
+                android:textColor="?android:attr/textColorPrimary"
+                android:textSize="11sp" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:backgroundTint="@android:color/transparent"
+                android:fontFamily="@font/open_dyslexic"
+                android:text="Registro"
+                android:textAllCaps="false"
+                android:textColor="?android:attr/textColorSecondary"
+                android:textSize="11sp" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:backgroundTint="@android:color/transparent"
+                android:fontFamily="@font/open_dyslexic"
+                android:text="Logros"
+                android:textAllCaps="false"
+                android:textColor="?android:attr/textColorSecondary"
+                android:textSize="11sp" />
+        </LinearLayout>
+
+        <!-- Sección de Días de la semana -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/open_dyslexic"
+            android:text="DÍAS SIN ULTRAPROCESADOS — ESTA SEMANA"
+            android:textColor="?android:attr/textColorSecondary"
+            android:textSize="11sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <!-- L -->
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:orientation="vertical">
+                <View android:layout_width="38dp" android:layout_height="38dp" android:background="@drawable/shape_day_box" android:backgroundTint="?attr/colorError" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:fontFamily="@font/open_dyslexic" android:text="L" android:textColor="?android:attr/textColorSecondary" />
+            </LinearLayout>
+
+            <!-- M -->
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:orientation="vertical">
+                <View android:layout_width="38dp" android:layout_height="38dp" android:background="@drawable/shape_day_box" android:backgroundTint="?attr/colorPrimary" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:fontFamily="@font/open_dyslexic" android:text="M" android:textColor="?android:attr/textColorSecondary" />
+            </LinearLayout>
+
+            <!-- M -->
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:orientation="vertical">
+                <View android:layout_width="38dp" android:layout_height="38dp" android:background="@drawable/shape_day_box" android:backgroundTint="@color/card_border" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:fontFamily="@font/open_dyslexic" android:text="M" android:textColor="?android:attr/textColorSecondary" />
+            </LinearLayout>
+
+            <!-- J -->
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:orientation="vertical">
+                <View android:layout_width="38dp" android:layout_height="38dp" android:background="@drawable/shape_day_box" android:backgroundTint="?attr/colorPrimary" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:fontFamily="@font/open_dyslexic" android:text="J" android:textColor="?android:attr/textColorSecondary" />
+            </LinearLayout>
+
+            <!-- V -->
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:orientation="vertical">
+                <View android:layout_width="38dp" android:layout_height="38dp" android:background="@drawable/shape_day_box" android:backgroundTint="@color/card_border" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:fontFamily="@font/open_dyslexic" android:text="V" android:textColor="?android:attr/textColorSecondary" />
+            </LinearLayout>
+
+            <!-- S -->
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:orientation="vertical">
+                <View android:layout_width="38dp" android:layout_height="38dp" android:background="@drawable/shape_day_box" android:backgroundTint="?attr/colorPrimary" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:fontFamily="@font/open_dyslexic" android:text="S" android:textColor="?android:attr/textColorSecondary" />
+            </LinearLayout>
+
+            <!-- D -->
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:gravity="center" android:orientation="vertical">
+                <View android:layout_width="38dp" android:layout_height="38dp" android:background="@drawable/shape_day_box" android:backgroundTint="@color/card_border" />
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="4dp" android:fontFamily="@font/open_dyslexic" android:text="D" android:textColor="?android:attr/textColorSecondary" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Bloque informativo 1: ¿Sabías que...? -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/shape_card_border"
+            android:orientation="horizontal"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="12dp"
+                android:text="💡"
+                android:textSize="20sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_dyslexic"
+                    android:text="¿SABÍAS QUE..."
+                    android:textColor="?attr/colorPrimary"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="@font/open_dyslexic"
+                    android:text="Un refresco de lata tiene hasta 20g de azúcar — casi el doble de lo recomendado para tu edad en un día entero."
+                    android:textColor="?android:attr/textColorPrimary"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Bloque informativo 2: Alerta de Azúcar -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/shape_card_border"
+            android:orientation="horizontal"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="12dp"
+                android:text="⚠️"
+                android:textSize="20sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_dyslexic"
+                    android:text="ALERTA DE AZÚCAR"
+                    android:textColor="?attr/colorError"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="@font/open_dyslexic"
+                    android:text="Ayer consumiste 40g de azúcar añadida. La OMS recomienda menos de 25g diarios para adolescentes."
+                    android:textColor="?android:attr/textColorPrimary"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Botón Editar datos -->
+        <Button
+            android:id="@+id/btnEditarDatos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="54dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_button_green"
+            android:fontFamily="@font/open_dyslexic"
+            android:text="@string/btn_editar_datos"
+            android:textColor="@color/color_button_primary_text"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:backgroundTint="@null" />
+
+    </LinearLayout>
+</ScrollView>
