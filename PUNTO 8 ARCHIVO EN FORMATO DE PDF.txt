@@ -1,16 +1,25 @@
-PUNTO 8: ARCHIVO EN FORMATO DE PDF
+CODIGO FUENTE DE LA APLICACION, RECURSOS NECESARIOS PARA EJECUTARLA, DOCUMENTACION
 
-01)	CODIGO FUENTE DE LA APLICACION 
+https://github.com/betanfer/app_mobile_alimentos_ultraprocesados
 
-02)	RECURSOS NECESARIOS PARA EJECUTARLA 
+ENLACE DE PROTOTIPO, DESIGN SYSTEM O ENLACE DEL MISMO
+Prototipo: https://www.figma.com/design/zpR1UfmqXWgEzf0P6405iV/APP-CODIGO-VERDE?node-id=0-1&p=f&t=aLycGH9ywyDJjM1S-0
 
-03)	DOCUMENTACION
+Design system: https://www.figma.com/design/0FFUgH8JY8tdWQKZwHYNxw/C%25C3%25B3digo-Verde?node-id=0-1&t=0VIzUiV5ifSeNZAq-0
 
-04)	ENLACE DE PROTOTIPO
+Recursos: 
+Paleta de colore: https://palettechecker.com/#BA5A5A-F7E49B-A4CE8B-86BCBD-E7F1F2-172929
+Fuente: https://opendyslexic.org/
+Botones, estilos, componentes:
+https://www.figma.com/design/iT747ijREVzySCe8EmBYUf/Shoping-App-Iphone--Community-?node-id=0-1&t=K2vAHkjHIwJmOgZa-0
 
-05)	DESIGN SYSTEM O ENLACE DEL MISMO
+https://www.figma.com/design/wMrYdqKOV5LTSREcoZhzVp/Interactive-Buttons-set-by-Nikica--Community-?node-id=1-201&t=HoOUF0pyxdwoKqO5-0
 
-06)	IDENTIFICACION DE LOS INTEGRANTES Y SUS APORTES
+https://www.figma.com/design/ppNLYbER8ipWWv9QGg1O5h/Trendy-Buttons--Community-?node-id=0-1&t=ixudjyP6TBaGs03A-0
+
+
+
+IDENTIFICACION DE LOS INTEGRANTES Y SUS APORTES
 
 Betancor Fernando Javier 
 Aporte en la Sección Lógica y Estructura del Proyecto (Nutriverde)
