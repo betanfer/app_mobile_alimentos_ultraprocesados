@@ -82,7 +82,7 @@ Luego de eso, pase al Android Studio y cree las primeras tres pantallas que seri
 • Pantalla de inicio del juego
 • Pantalla de selección de menú
 • Pantalla de juego
-Todas estas pantallas las cree de manera estática para que después mis compañeros pudieran pudieran agregar la movilidad de los mismos. 
+Todas estas pantallas las cree de manera estática para que después mis compañeros pudieran agregar la movilidad de los mismos. 
 
 
 Julia Scodelari
