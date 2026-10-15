@@ -75,6 +75,16 @@ También me encargué del temporizador de cuenta atrás, el cual se programó el
 Para que el temporizador no se reinicie ante un giro de pantalla, se debió implementarlo en el ViewModel de la pantalla de juego, que es el archivo JuegoViewModel.
 
 
+Stephany Rodriguez
+Yo me encargue encargue de crear el nombre de la aplicación y el diseño del logo de la misma, también pasar al figma las ideas de mis compañeros para poder tener la guía de como queríamos que se plasmara en el Android Studio las pantallas.
+Luego de eso, pase al Android Studio y cree las primeras tres pantallas que seria: 
+• Pantalla de inicio de la aplicación, que es al abrir la misma 
+• Pantalla de inicio del juego
+• Pantalla de selección de menú
+• Pantalla de juego
+Todas estas pantallas las cree de manera estática para que después mis compañeros pudieran pudieran agregar la movilidad de los mismos. 
+
+
 Julia Scodelari
 Por mi parte, me encargue, en principio de diseñar la paleta de colores que utilizamos en la aplicación, ensaye diferentes opciones hasta dar con una que fuera colorida, poseyera buenos contrastes entre colores y cuyas paletas alternativas fueran también coloridas y atractivas. 
 Luego, mis principales contribuciones en el desarrollo de la aplicación incluyeron:
