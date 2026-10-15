@@ -1,0 +1,71 @@
+PUNTO 8: ARCHIVO EN FORMATO DE PDF
+
+01)	CODIGO FUENTE DE LA APLICACION 
+
+02)	RECURSOS NECESARIOS PARA EJECUTARLA 
+
+03)	DOCUMENTACION
+
+04)	ENLACE DE PROTOTIPO
+
+05)	DESIGN SYSTEM O ENLACE DEL MISMO
+
+06)	IDENTIFICACION DE LOS INTEGRANTES Y SUS APORTES
+
+Betancor Fernando Javier 
+Aporte en la Sección Lógica y Estructura del Proyecto (Nutriverde)
+Durante el desarrollo del proyecto Nutriverde, mi participación principal se centró en dar los primeros pasos  implementación de la estructura lógica y la configuración inicial de la aplicación en Android Studio utilizando Kotlin. que posteriormente fuimos chequeando con Lucas Reyes. Entre mis contribuciones específicas incluyen:
+
+1.	Configuración y Creación del AndroidManifest.xml:
+Creación y configuración del archivo AndroidManifest.xml, estableciendo los permisos necesarios, el empaquetado de la aplicación y la declaración de las distintas actividades (Activities) para garantizar una correcta navegación y flujo dentro de la aplicación. 
+
+2.	Creación de Clases y Variables para el Modelo de Datos y Gestión (Alimento y AlimentoRepository):
+
+
+o	Alimento: Creación de la clase de modelo y sus respectivas variables para definir la estructura de los datos de los alimentos gestionados en la aplicación.
+
+o	AlimentoRepository: Implementación del repositorio encargado de centralizar y administrar la lógica de acceso y almacenamiento de los datos de los alimentos, facilitando la separación de responsabilidades en la arquitectura.
+
+3.	Definición de Clases de Entidad y Gestión de Avatares:
+
+o	Avatar: Creación de la clase y definición de variables lógicas para el manejo, personalización y estados del avatar dentro de la experiencia de la aplicación.
+
+4.	Implementación de Actividades Principales (Activities):
+o	JuegoBandejaActivity: Desarrollo de la lógica y la gestión de variables para la interfaz interactiva del juego de la bandeja.
+
+o	Paso1AvatarActivity: Creación de la actividad y la lógica correspondiente para el flujo de selección o configuración inicial del avatar.
+
+o	SeleccionHorarioActivity: Implementación de la lógica para la gestión y elección de horarios dentro de la aplicación.
+
+o	ResultadoActivity: Desarrollo de la actividad encargada de procesar, calcular y mostrar los resultados finales al usuario de manera dinámica.
+
+Por otro lado, realice la creación de un menú de alimentos, el cual paso a explicar. 
+La aplicación móvil nace de una necesidad clave en la adolescencia: transformar la manera en que los jóvenes se relacionan con la comida. Sabemos que a esta edad las elecciones alimenticias suelen verse influenciadas por la practicidad o el ultraprocesamiento. Nuestro objetivo es concientizar sobre una alimentación sana y equilibrada a través de la gamificación, logrando que aprender a comer bien sea dinámico, divertido y visual."
+ 
+"Para construir la lógica del juego, desarrollamos un menú dividido en las cuatro comidas principales: desayuno, almuerzo, merienda y cena. En cada una, seleccionamos tanto opciones saludables —como avena, semillas, vegetales, carnes magras y legumbres— como opciones no saludables de consumo habitual, tales como ultraprocesados, frituras o azúcares refinados."
+ 
+"Para evaluar cada elección del usuario en la experiencia de juego, establecimos un sistema de puntuación tripartito enfocado en tres pilares:
+
+
+1.	Nivel Saludable: Otorga un puntaje positivo de +2 a las alternativas nutritivas e integrales, mientras que asigna un valor negativo de -1 a los ultraprocesados.
+ 
+2.	Vitalidad: Refleja la energía limpia que aporta el alimento. Los alimentos nutritivos suman hasta +2 puntos de vitalidad, mientras que las opciones ultraprocesadas restan -1 punto debido a los picos y caídas bruscas de azúcar y grasas.
+ 
+3.	Saciedad: Evalúa la capacidad del alimento para mantener satisfecho al usuario. Aquí, alimentos ricos en fibra o proteína otorgan hasta +2 puntos, mientras que los snacks y bebidas azucaradas obtienen valores neutros o negativos por su baja densidad nutricional.
+ 
+De esta forma, cada plato armado impacta directamente en las métricas de salud de la aplicación, incentivando a los adolescentes a tomar decisiones más conscientes en su día a día."
+Puntos clave que fundamentan el guion (para tu consulta personal):
+•	Categorías evaluadas: Desayuno, Almuerzo, Merienda y Cena.
+ 
+•	Criterios de valoración en el menú:
+
+o	Nivel Saludable: +2 (Saludable) / -1 (No saludable).
+ 
+o	Saciedad: Escala de -1 a 2.
+ 
+o	Vitalidad: +2 o +1 (Aporte sostenido) / -1 (Baja vitalidad o pesadez).
+ 
+
+
+
+
